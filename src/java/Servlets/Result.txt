@@ -1,0 +1,3688 @@
+
+
+###########acl.conf##############
+
+
+acl=my_named_acl
+acl=my_named_acl2
+acl=my_named_acl,my_named_acl2
+deny=0.0.0.0/0.0.0.0
+permit=209.16.236.0
+permit=209.16.236.1
+permit=0.0.0.0/0.0.0.0
+deny=10.24.20.171
+deny=10.24.20.103
+deny=209.16.236.1
+acl=example_named_acl1
+acl=example_named_acl2
+deny=209.16.236.0
+deny = ::
+permit = ::1/128
+permit = fe80::21d:bad:fad:2323
+
+
+###########adsi.conf##############
+
+
+
+
+###########agents.conf##############
+
+
+ackcall=no
+acceptdtmf=##
+autologoff=15
+wrapuptime=5000
+musiconhold=default
+recordagentcalls=yes
+custom_beep=beep
+fullname=Mark Spencer
+ackcall=yes
+fullname=Will Meadows
+
+
+###########alarmreceiver.conf##############
+
+
+eventcmd = yourprogram -yourargs ...
+no_group_meta = yes
+db-family = yourfamily:
+
+
+###########alsa.conf##############
+
+
+language=en
+Set(CHANNEL(musicclass)=whatever) in the dialplan and the peer channel
+mohinterpret=default
+silencesuppression = yes
+silencethreshold = 1000
+input_device=hw:0,0
+output_device=hw:0,0
+mute=true
+noaudiocapture=true
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of an
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a SIP
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+
+
+###########amd.conf##############
+
+
+total_analysis_time = 5000: Maximum time allowed for the algorithm to decide
+silence_threshold = 256: If the average level of noise in a sample does not reach
+initial_silence = 2500: Maximum silence duration before the greeting.
+after_greeting_silence = 800: Silence after detecting a greeting.
+greeting = 1500: Maximum length of a greeting. If exceeded, then the
+min_word_length = 100: Minimum duration of Voice to considered as a word
+maximum_word_length = 5000: Maximum duration of a single Voice utterance allowed.
+between_words_silence = 50: Minimum duration of silence after a word to consider
+maximum_number_of_words = 2: Maximum number of words in the greeting
+
+
+###########app_mysql.conf##############
+
+
+WARNING: setting nullvalue=null may have undesireable consequences, in
+
+
+###########app_skel.conf##############
+
+
+
+
+###########ari.conf##############
+
+
+enabled = yes : When set to no, ARI support is disabled.
+pretty = no: When set to yes, responses from ARI are
+allowed_origins =: Comma separated list of allowed origins, for
+auth_realm = : Realm to use for authentication. Defaults to Asterisk
+websocket_write_timeout = 100
+channelvars = var1,var2,var3
+type = user: Specifies user configuration
+read_only = no : When set to yes, user is only authorized for
+password = : Crypted or plaintext password (see password_format).
+password_format = plain
+
+
+###########ast_debug_tools.conf##############
+
+
+
+
+###########asterisk.adsi##############
+
+
+
+
+###########asterisk.conf##############
+
+
+verbose = 3
+debug = 3
+refdebug = yes: Enable reference count debug logging.
+alwaysfork = yes: Same as -F at startup.
+nofork = yes: Same as -f at startup.
+quiet = yes: Same as -q at startup.
+timestamp = yes: Same as -T at startup.
+execincludes = yes: Support #exec in config files.
+console = yes: Run as console (same as -c at startup).
+highpriority = yes: Run realtime priority (same as -p at
+initcrypto = yes: Initialize crypto keys (same as -i at
+nocolor = yes: Disable console colors.
+dontwarn = yes: Disable some warnings.
+dumpcore = yes: Dump core on crash (same as -g at startup).
+languageprefix = yes: Use the new sound prefix path syntax.
+systemname = my_system_name: Prefix uniqueid with a system name for
+autosystemname = yes: Automatically set systemname to hostname,
+mindtmfduration = 80: Set minimum DTMF duration in ms (default 80 ms)
+maxcalls = 10: Maximum amount of calls allowed.
+maxload = 0.9: Asterisk stops accepting new calls if the
+maxfiles = 1000: Maximum amount of openfiles.
+minmemfree = 1: In MBs, Asterisk stops accepting new calls if
+cache_record_files = yes: Cache recorded sound files to another
+record_cache_dir = /tmp: Specify cache directory (used in conjunction
+transmit_silence = yes: Transmit silence while a channel is in a
+transcode_via_sln = yes: Build transcode paths via SLINEAR, instead of
+runuser = asterisk: The user to run as.
+rungroup = asterisk: The group to run as.
+lightbackground = yes: If your terminal is set for a light-colored
+forceblackbackground = yes : Force the background of the terminal to be 
+defaultlanguage = fr : Default language
+documentation_language = en_US: Set the language you want documentation
+hideconnect = yes: Hide messages displayed when a remote console
+lockconfdir = no: Protect the directory containing the
+stdexten = gosub: How to invoke the extensions.conf stdexten.
+live_dangerously = no: Enable the execution of 'dangerous' dialplan
+entityid=00:11:22:33:44:55: Entity ID.
+rtp_pt_dynamic = 96: Normally the Dynamic RTP Payload Type numbers
+astctlpermissions = 0660
+astctlowner = root
+astctlgroup = apache
+astctl = asterisk.ctl
+
+
+###########calendar.conf##############
+
+
+type = ical:type of calendar--currently supported: ical, caldav, exchange, or ews
+url = https://example.com/home/jdoe/Calendar/ : URL to shared calendar (Zimbra example)
+user = jdoe: web username
+secret = supersecret : web password
+refresh = 15 : refresh calendar every n minutes
+timeframe = 60 : number of minutes of calendar data to pull for each refresh period
+busystate : 0=FREE, 1=TENTATIVE, 2=BUSY
+autoreminder = 10: Override event-defined reminder before each busy status (in mins)
+channel = SIP/60001: Channel to dial
+context = default: Context to connect to on answer
+extension = 123: Extension to connect to on answer
+app = Playback: Application to execute on answer (instead of context/extension)
+appdata = tt-weasels: Data part of application to execute on answer
+waittime = 30: How long to wait for an answer, defaults to 30 seconds
+setvar=name=value. Variable subsitution is done on the value to allow the use of dialplan
+setvar = CALLERID(name)=${CALENDAR_EVENT(summary)}
+type = exchange:type of calendar--currently supported: ical, caldav, exchange, or ews
+url = https://example.com/exchange/jdoe : URL to MS Exchange OWA for user (usually includes exchange/user)
+user = jdoe: Exchange username
+secret = mysecret: Exchange password
+channel = SIP/1234 : Channel to dial
+extension = 1234 : Extension to connect to on answer
+type = ews : type of calendar--currently supported: ical, caldav, exchange, or ews
+url = https://example.com/ews/Exchange.asmx : URL to MS Exchange EWS
+type = caldav:type of calendar--currently supported: ical, caldav, exchange, or ews
+url = https://www.google.com/calendar/dav/username@gmail.com/events/: Main GMail calendar (the trailing slash is significant!)
+user = jdoe@gmail.com: username
+secret = mysecret: password
+
+
+###########ccss.conf##############
+
+
+cc_max_requests = 20
+exten => *843000,hint,ccss:SIP/3000
+cc_available_devstate = NOT_INUSE
+cc_offered_devstate = NOT_INUSE
+cc_caller_requested_devstate = NOT_INUSE
+cc_active_devstate = INUSE
+cc_callee_ready_devstate = INUSE
+cc_caller_busy_devstate = ONHOLD
+cc_recalling_devstate = RINGING
+cc_complete_devstate = NOT_INUSE
+cc_failed_devstate = NOT_INUSE
+cc_offer_timer = 20
+ccbs_available_timer = 4800
+ccnr_available_timer = 7200
+cc_recall_timer = 20
+cc_agent_policy=never
+cc_monitor_policy=never
+cc_max_agents = 5
+cc_max_monitors = 5
+cc_callback_macro=
+cc_callback_sub=
+cc_agent_dialstring=
+
+
+###########cdr.conf##############
+
+
+enable=yes
+unanswered = no
+congestion = no
+endbeforehexten=no
+initiatedseconds=no
+batch=no
+size=100
+time=300
+scheduleronly=no
+safeshutdown=yes
+and the [general] section is defined, with the single variable 'enabled = yes'.
+usegmtime=yes: log date/time in GMT.Default is "no"
+loguniqueid=yes: log uniqueid.Default is "no"
+loguserfield=yes : log user field.Default is "no"
+accountlogs=yes: create separate log file for each account code. Default is "yes"
+newcdrcolumns=yes : Enable logging of post-1.8 CDR columns (peeraccount, linkedid, sequence).
+usegmtime=yes: log date/time in GMT
+loguniqueid=yes: log uniqueid
+loguserfield=yes : log user field
+radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf
+
+
+###########cdr_adaptive_odbc.conf##############
+
+
+Simply set those CDR variables in your dialplan, i.e. Set(CDR(route)=27),
+connection=mysql1
+table=cdr
+table=extracdr
+connection=sqlserver
+table=AsteriskCDR
+schema=public : for databases which support schemas
+usegmtime=yes : defaults to no
+alias src => source
+alias channel => source_channel
+alias dst => dest
+alias dstchannel => dest_channel
+filter accountcode => somename
+filter src => 123
+filter src != 456
+static "Some Special Value" => identifier_code
+quoted_identifiers=" : Default to null
+
+
+###########cdr_custom.conf##############
+
+
+Master.csv => ${CSV_QUOTE(${CDR(clid)})},${CSV_QUOTE(${CDR(src)})},${CSV_QUOTE(${CDR(dst)})},${CSV_QUOTE(${CDR(dcontext)})},${CSV_QUOTE(${CDR(channel)})},${CSV_QUOTE(${CDR(dstchannel)})},${CSV_QUOTE(${CDR(lastapp)})},${CSV_QUOTE(${CDR(lastdata)})},${CSV_QUOTE(${CDR(start)})},${CSV_QUOTE(${CDR(answer)})},${CSV_QUOTE(${CDR(end)})},${CSV_QUOTE(${CDR(duration)})},${CSV_QUOTE(${CDR(billsec)})},${CSV_QUOTE(${CDR(disposition)})},${CSV_QUOTE(${CDR(amaflags)})},${CSV_QUOTE(${CDR(accountcode)})},${CSV_QUOTE(${CDR(uniqueid)})},${CSV_QUOTE(${CDR(userfield)})},${CDR(sequence)}
+Master.csv => ${CSV_QUOTE(${CDR(clid)})},${CSV_QUOTE(${CDR(src)})},${CSV_QUOTE(${CDR(dst)})},${CSV_QUOTE(${CDR(dcontext)})},${CSV_QUOTE(${CDR(channel)})},${CSV_QUOTE(${CDR(dstchannel)})},${CSV_QUOTE(${CDR(lastapp)})},${CSV_QUOTE(${CDR(lastdata)})},${CSV_QUOTE(${CDR(start)})},${CSV_QUOTE(${CDR(answer)})},${CSV_QUOTE(${CDR(end)})},${CSV_QUOTE(${CDR(duration,f)})},${CSV_QUOTE(${CDR(billsec,f)})},${CSV_QUOTE(${CDR(disposition)})},${CSV_QUOTE(${CDR(amaflags)})},${CSV_QUOTE(${CDR(accountcode)})},${CSV_QUOTE(${CDR(uniqueid)})},${CSV_QUOTE(${CDR(userfield)})},${CDR(sequence)}
+Simple.csv => ${CSV_QUOTE(${EPOCH})},${CSV_QUOTE(${CDR(src)})},${CSV_QUOTE(${CDR(dst)})}
+
+
+###########cdr_manager.conf##############
+
+
+Each line like "varname => label" will include a "label: ${CDR(varname)}"
+rate => Rate
+carrier => Carrier
+
+
+###########cdr_mysql.conf##############
+
+
+setting hostname=localhost
+hostname=database.host.name
+dbname=asteriskcdrdb
+table=cdr
+password=password 
+user=asteriskcdruser
+port=3306
+sock=/tmp/mysql.sock
+cdrzone=UTC : log CDRs with UTC
+usegmtime=yes :log date/time in GMT.Default is "no"
+cdrzone=America/New_York: or use a specific time zone
+charset=koi8r
+start=calldate
+compat=no
+ssl_ca=<path to CA cert>
+ssl_cert=<path to cert>
+ssl_key=<path to keyfile>
+static "<value>" => <column>
+alias <cdrvar> => <column>
+alias clid => <a_field_not_named_clid>
+alias src => <a_field_not_named_src>
+alias dst => <a_field_not_named_dst>
+alias dcontext => <a_field_not_named_dcontext>
+alias channel => <a_field_not_named_channel>
+alias dstchannel => <a_field_not_named_dstchannel>
+alias lastapp => <a_field_not_named_lastapp>
+alias lastdata => <a_field_not_named_lastdata>
+alias duration => <a_field_not_named_duration>
+alias billsec => <a_field_not_named_billsec>
+alias disposition => <a_field_not_named_disposition>
+alias amaflags => <a_field_not_named_amaflags>
+alias accountcode => <a_field_not_named_accountcode>
+alias userfield => <a_field_not_named_userfield>
+alias uniqueid => <a_field_not_named_uniqueid>
+
+
+###########cdr_odbc.conf##############
+
+
+dsn=MySQL-test
+loguniqueid=yes
+dispositionstring=yes
+table=cdr:"cdr" is default table name
+usegmtime=no : set to "yes" to log in GMT
+hrtime=yes:Enables microsecond accuracy with the billsec and duration fields
+newcdrcolumns=yes : Enable logging of post-1.8 CDR columns (peeraccount, linkedid, sequence)
+
+
+###########cdr_pgsql.conf##############
+
+
+hostname=localhost
+port=5432
+dbname=asterisk
+password=password
+user=postgres
+appname=asterisk: Postgres application_name support (optional). Whitespace not allowed.
+table=cdr:SQL table where CDRs will be inserted
+encoding=LATIN9: Encoding of logged characters in Asterisk
+timezone=UTC: Uncomment if you want datetime fields in UTC/GMT
+
+
+###########cdr_sqlite3_custom.conf##############
+
+
+table => cdr
+columns => calldate, clid, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, test
+values => '${CDR(start)}','${CDR(clid)}','${CDR(dcontext)}','${CDR(channel)}','${CDR(dstchannel)}','${CDR(lastapp)}','${CDR(lastdata)}','${CDR(duration)}','${CDR(billsec)}','${CDR(disposition)}','${CDR(amaflags)}','${CDR(accountcode)}','${CDR(uniqueid)}','${CDR(userfield)}','${CDR(test)}'
+values => '${CDR(start)}','${CDR(clid)}','${CDR(dcontext)}','${CDR(channel)}','${CDR(dstchannel)}','${CDR(lastapp)}','${CDR(lastdata)}','${CDR(duration,f)}','${CDR(billsec,f)}','${CDR(disposition)}','${CDR(amaflags)}','${CDR(accountcode)}','${CDR(uniqueid)}','${CDR(userfield)}','${CDR(test)}'
+
+
+###########cdr_syslog.conf##############
+
+
+facility=local0
+priority=warn
+facility = local5
+priority = debug
+template = "${CDR(clid)}","${CDR(src)}","${CDR(dst)}","${CDR(dcontext)}","${CDR(channel)}","${CDR(dstchannel)}","${CDR(lastapp)}","${CDR(lastdata)}","${CDR(start)}","${CDR(answer)}","${CDR(end)}","${CDR(duration)}","${CDR(billsec)}","${CDR(disposition)}","${CDR(amaflags)}","${CDR(accountcode)}","${CDR(uniqueid)}","${CDR(userfield)}"
+template = "${CDR(clid)}","${CDR(src)}","${CDR(dst)}","${CDR(dcontext)}","${CDR(channel)}","${CDR(dstchannel)}","${CDR(lastapp)}","${CDR(lastdata)}","${CDR(start)}","${CDR(answer)}","${CDR(end)}","${CDR(duration,f)}","${CDR(billsec,f)}","${CDR(disposition)}","${CDR(amaflags)}","${CDR(accountcode)}","${CDR(uniqueid)}","${CDR(userfield)}"
+template = "We received a call from ${CDR(src)}"
+
+
+###########cdr_tds.conf##############
+
+
+connection=ConnectionFromFreeTDSConf
+dbname=AsteriskCDRs
+table=cdr
+username=mangUsr
+password=
+language=us_english
+charset=BIG5
+hrtime=false
+
+
+###########cel.conf##############
+
+
+enable=yes
+dateformat = %F %T
+enabled=yes
+show_user_defined=yes
+usegmtime=yes
+radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf
+
+
+###########cel_custom.conf##############
+
+
+Master.csv => ${CSV_QUOTE(${eventtype})},${CSV_QUOTE(${eventtime})},${CSV_QUOTE(${CALLERID(name)})},${CSV_QUOTE(${CALLERID(num)})},${CSV_QUOTE(${CALLERID(ANI)})},${CSV_QUOTE(${CALLERID(RDNIS)})},${CSV_QUOTE(${CALLERID(DNID)})},${CSV_QUOTE(${CHANNEL(exten)})},${CSV_QUOTE(${CHANNEL(context)})},${CSV_QUOTE(${CHANNEL(channame)})},${CSV_QUOTE(${CHANNEL(appname)})},${CSV_QUOTE(${CHANNEL(appdata)})},${CSV_QUOTE(${CHANNEL(amaflags)})},${CSV_QUOTE(${CHANNEL(accountcode)})},${CSV_QUOTE(${CHANNEL(uniqueid)})},${CSV_QUOTE(${CHANNEL(linkedid)})},${CSV_QUOTE(${BRIDGEPEER})},${CSV_QUOTE(${CHANNEL(userfield)})},${CSV_QUOTE(${userdeftype})},${CSV_QUOTE(${eventextra})}
+
+
+###########cel_odbc.conf##############
+
+
+show_user_defined=yes
+CHANNEL_START = 1
+CHANNEL_END = 2
+HANGUP = 3
+ANSWER = 4
+APP_START = 5
+APP_END = 6
+BRIDGE_START = 7
+BRIDGE_END = 8
+CONF_START = 9
+CONF_END = 10
+PARK_START = 11
+PARK_END = 12
+BLINDTRANSFER = 13
+ATTENDEDTRANSFER = 14
+TRANSFER = 15
+HOOKFLASH = 16
+3WAY_START = 17
+3WAY_END = 18
+CONF_ENTER = 19
+CONF_EXIT = 20
+USER_DEFINED = 21
+LINKEDID_END = 22
+BRIDGE_UPDATE = 23
+PICKUP = 24
+FORWARD = 25
+userdeftype (set only if eventtype == USER_DEFINED)
+connection=mysql1
+table=cel
+table=extracel
+connection=sqlserver
+table=AsteriskCEL
+usegmtime=yes : defaults to no
+allowleapsecond=no : allow leap second in SQL column for eventtime, default yes.
+alias src => source
+alias channel => source_channel
+alias dst => dest
+alias dstchannel => dest_channel
+filter accountcode => somename
+static "Some Special Value" => identifier_code
+
+
+###########cel_pgsql.conf##############
+
+
+CHANNEL_START = 1
+CHANNEL_END = 2
+HANGUP = 3
+ANSWER = 4
+APP_START = 5
+APP_END = 6
+BRIDGE_START = 7
+BRIDGE_END = 8
+CONF_START = 9
+CONF_END = 10
+PARK_START = 11
+PARK_END = 12
+BLINDTRANSFER = 13
+ATTENDEDTRANSFER = 14
+TRANSFER = 15
+HOOKFLASH = 16
+3WAY_START = 17
+3WAY_END = 18
+CONF_ENTER = 19
+CONF_EXIT = 20
+USER_DEFINED = 21
+LINKEDID_END = 22
+BRIDGE_UPDATE = 23
+PICKUP = 24
+FORWARD = 25
+userdeftype (set only if eventtype == USER_DEFINED)
+show_user_defined=yes
+usegmtime=yes
+hostname=localhost
+port=5432
+dbname=asterisk
+password=password
+user=postgres
+table=cel:SQL table where CEL's will be inserted
+schema=public :Schema where CEL's table is located.Optional parameter.
+appname=asterisk : Postgres application_name support (optional). Whitespace not allowed.
+
+
+###########cel_sqlite3_custom.conf##############
+
+
+table=> cel
+columns=> eventtype, eventtime, cidname, cidnum, cidani, cidrdnis, ciddnid, context, exten, channame, appname, appdata, amaflags, accountcode, uniqueid, userfield, peer, userdeftype, eventextra
+values=> '${eventtype}','${eventtime}','${CALLERID(name)}','${CALLERID(num)}','${CALLERID(ANI)}','${CALLERID(RDNIS)}','${CALLERID(DNID)}','${CHANNEL(context)}','${CHANNEL(exten)}','${CHANNEL(channame)}','${CHANNEL(appname)}','${CHANNEL(appdata)}','${CHANNEL(amaflags)}','${CHANNEL(accountcode)}','${CHANNEL(uniqueid)}','${CHANNEL(userfield)}','${BRIDGEPEER}','${userdeftype}','${eventextra}'
+
+
+###########cel_tds.conf##############
+
+
+connection=ConnectionFromFreeTDSConf
+dbname=MalicoHN
+table=cel
+username=mangUsr
+password=
+language=us_english
+charset=BIG5
+
+
+###########chan_dahdi.conf##############
+
+
+trunkgroup => <trunkgroup>,<dchannel>[,<backup1>...]
+trunkgroup => 1,24,48
+trunkgroup => 1,24
+spanmap => <dahdispan>,<trunkgroup>[,<logicalspan>]
+spanmap => 1,1,1
+spanmap => 2,1,2
+spanmap => 3,1,3
+spanmap => 4,1,4
+language=en
+switchtype=euroisdn
+msn=
+nsf=none
+service_message_support=yes
+pridialplan=unknown
+prilocaldialplan=national
+pricpndialplan=from_channel
+internationalprefix = 00
+nationalprefix = 0
+localprefix = 0711
+privateprefix = 07115678
+unknownprefix =
+internationalprefix = +
+nationalprefix = +49
+localprefix = +49711
+privateprefix = +497115678
+resetinterval = 3600
+force_restart_unavailable_chans=yes
+inband_on_setup_ack=yes
+inband_on_proceeding=yes
+overlapdial=yes
+display_send=
+display_receive=
+mcid_send=yes
+datetime_send=
+colp_send=update
+inbanddisconnect=yes
+hold_disconnect_transfer=yes
+layer1_presence=ignore
+layer2_persistence=leave_down
+priindication = outofband
+priexclusive = yes
+qsigchannelmapping=logical
+discardremoteholdretrieval=yes
+pritimer => t200,1000
+pritimer => t313,4000
+cc_ptmp_recall_mode = specific
+cc_qsig_signaling_link_req = retain
+cc_qsig_signaling_link_rsp = retain
+facilityenable = yes
+aoc_enable=s,d,e
+aoce_delayhangup=yes
+signalling=fxo_ls
+signalling=featdmf
+outsignalling=featb
+defaultozz=0000
+defaultcic=303
+toneduration=100
+usedistinctiveringdetection=yes
+distinctiveringaftercid=yes
+bell = bell202 as used in US (default)
+v23= v23 as used in the UK
+v23_jp = v23 as used in Japan
+dtmf = DTMF as used in Denmark, Sweden and Netherlands
+smdi = Use SMDI for caller ID.Requires SMDI to be enabled (usesmdi).
+cidsignalling=v23
+ring= a ring signals the start (default)
+polarity= polarity reversal signals the start
+polarity_IN = polarity reversal signals the start, for India,
+dtmf= causes monitor loop to look for dtmf energy on the
+cidstart=polarity
+When cidstart=dtmf, the energy level on the line used to trigger dtmf cid
+dtmfcidlevel=256
+hidecallerid=yes
+hidecalleridname=yes
+waitfordialtone=1000
+dialtone_detect=no
+mwimonitor=no
+mwilevel=512
+mwimonitornotify=/usr/local/bin/dahdinotify.sh
+mwisendtype=rpas,lrev
+max_call_waiting_calls=0
+allow_call_waiting_calls=no
+mwi_mailboxes=vm-mailbox{,vm-mailbox}
+vm-mailbox = Internal voicemail mailbox identifier.
+mwi_mailboxes=501@mailboxes,502@mailboxes
+mwi_vm_boxes=mailbox_number{,mailbox_number}
+mwi_vm_boxes=501,502
+mwi_vm_numbers=700,,800,,900
+mwi_vm_numbers=700,700,800,800,900,900,900,900
+mwi_vm_numbers=
+restrictcid=no
+sendcalleridafter = 2
+('canpark=no' is overridden by 'transfer=yes')
+parkinglot=plaza
+mailbox=1234@context
+to 256 ms of echo cancellation.echocancel=256 means 256 / 8 = 32 ms.
+echocancel=128,param1=32,param2=0,param3=14
+milliseconds to delay before training (default = 400)
+echotraining=yes
+echotraining=800
+relaxdtmf=yes
+hwrxgain=disabled
+hwtxgain=disabled
+hwrxgain=2.0
+hwtxgain=3.0
+rxgain=2.0
+txgain=3.0
+rxdrc=1.0
+txdrc=4.0
+namedcallgroup=engineering,sales,netgroup,protgroup
+namedpickupgroup=sales
+setvar=CHANNEL=42
+setvar=ATTENDED_TRANSFER_COMPLETE_SOUND=beep 
+immediate=yes
+transfertobusy=no
+cid_tag=
+append_msn_to_cid_tag=no
+callerid = 123456
+callerid = My Name <2564286000>
+cid_number = 2564286000
+fullname = My Name
+callerid = asreceived
+useincomingcalleridondahditransfer = yes
+description=Phone located in lobby
+amaflags=default
+accountcode=lss0101
+adsi=yes
+usesmdi=yes
+smdiport=/dev/ttyS0
+busydetect=yes
+busycount=6
+busypattern=500,500
+answeronpolarityswitch=yes
+hanguponpolarityswitch=yes
+callprogress=yes
+progzone=uk
+tonezone = 0 : 0 is US
+ringtimeout=8000
+pulsedial=yes
+faxdetect=both
+faxdetect=incoming
+faxdetect=outgoing
+faxdetect=no
+faxdetect_timeout=30
+faxbuffers=>6,full
+buffers=4,immediate
+moh_signaling=moh
+mohinterpret=default
+mohsuggest=default
+idledial=6999
+idleext=6999@dialout
+minunused=2
+minidle=1
+ignore_failed_channels = false
+jitterbuffers=4
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a DAHDI
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+Syntax is:cadence=ring,silence[,ring,silence[...]]
+cadence=125,125,2000,-4000
+cadence=250,250,500,1000,250,250,500,-4000
+cadence=125,125,125,125,125,-4000
+cadence=1000,500,2500,-5000
+callerid="Green Phone"<(256) 428-6121>
+description=Reception Phone: add a description for 'dahdi show channels'
+channel => 1
+callerid="Black Phone"<(256) 428-6122>
+description=Courtesy Phone
+channel => 2
+callerid="CallerID Phone" <(630) 372-1564>
+description=: reset the description for following channels
+channel => 3
+callerid="Pac Tel Phone" <(256) 428-6124>
+channel => 4
+callerid="Uniden Dead" <(256) 428-6125>
+channel => 5
+callerid="Cortelco 2500" <(256) 428-6126>
+channel => 6
+callerid="Main TA 750" <(256) 428-6127>
+channel => 44
+context=remote
+signaling=em
+channel => 15
+channel => 16
+signalling=em_w
+stripmsd=1
+callerid=asreceived
+group=0
+signalling=fxs_ls
+channel => 45
+group=1
+callerid="Joe Schmoe" <(256) 428-6131>
+channel => 25
+callerid="Megan May" <(256) 428-6132>
+channel => 26
+callerid="Suzy Queue" <(256) 428-6233>
+channel => 27
+callerid="Larry Moe" <(256) 428-6234>
+channel => 28
+switchtype = national
+signalling = pri_cpe
+group = 2
+channel => 1-23
+channel => span-name!pstn!00!1-4
+channel => span-name!pstn!00!1,2,3,4
+dring1=95,0,0
+dring1context=internal1
+dring1range=10
+dring2=325,95,0
+dring2context=internal2
+dring2range=10
+context=default
+reportalarms=channels
+ss7type = itu
+ss7_called_nai=dynamic
+ss7_calling_nai=dynamic
+ss7_internationalprefix = 00
+ss7_nationalprefix = 0
+ss7_subscriberprefix =
+ss7_unknownprefix =
+ss7_explicitacm=yes
+ss7_autoacm=yes
+ss7_initialhwblo=yes
+ss7_use_echocontrol=yes
+ss7_default_echocontrol=yes
+linkset = 1
+slc=
+pointcode = 1
+adjpointcode = 2
+defaultdpc = 3
+cicbeginswith = 1
+networkindicator=international
+sigchan = 48
+sigchan = 96
+channel = 25-47
+inr_if_no_calling=yes
+non_isdn_access=yes
+sls_shift = 0
+cause_location=1
+mfcr2_variant=mx
+mfcr2_max_ani=10
+mfcr2_max_dnis=4
+mfcr2_get_ani_first=no
+mfcr2_category=national_subscriber
+remember to set mfcr2_call_files=yes
+mfcr2_logdir=span1
+mfcr2_call_files=yes|no
+mfcr2_logging=all
+mfcr2_mfback_timeout=-1
+mfcr2_metering_pulse_timeout=-1
+mfcr2_allow_collect_calls=no
+mfcr2_double_answer=no
+mfcr2_immediate_accept=no
+mfcr2_accept_on_offer=yes
+you need openr2 >= 1.2.0 to use this feature
+mfcr2_skip_category=no
+mfcr2_advanced_protocol_file=/path/to/r2proto.conf
+mfcr2_forced_release=no
+mfcr2_charge_calls=yes
+echocancel = 64
+dahdichan = 1-8
+group = 1
+channel => 1-8
+echocancel = yes
+group = 0,4
+callgroup = 3
+pickupgroup = 3
+threewaycalling = yes
+transfer = yes
+context = phones
+faxdetect = incoming
+dahdichan = 1
+callerid = My Name <501>
+mailbox = 501@mailboxes
+dahdichan = 2
+faxdetect = no
+context = fax
+dahdichan = 3
+pickupgroup = 3,4
+
+
+###########chan_mobile.conf##############
+
+
+interval=30: Number of seconds between trying to connect to devices. 
+forcemaster=yes: attempt to force adapter into master mode. default is no.
+alignmentdetection=yes : enable this if you sometimes get 'white noise' on asterisk side of the call
+Each device needs an adapter=xxxx entry which determines which bluetooth adapter is used.
+address=00:E0:91:7F:46:44: the address of the phone
+port=4: the rfcomm port number (from mobile search)
+context=incoming-mobile: dialplan context for incoming calls
+adapter=dlink: adapter to use
+group=1: this phone is in channel group 1
+sms=no: support SMS, defaults to yes
+nocallsetup=yes: set this only if your phone reports that it supports call progress notification, but does not do it. Motorola L6 for example.
+blackberry=yes: set this if you are using a blackberry device
+group=1: this phone is in channel group 1 also.
+type=headset: This is a headset, not a Phone !
+
+
+###########cli.conf##############
+
+
+sip set debug on = yes
+core set verbose 3 = yes
+core set debug 1 = yes
+
+
+###########cli_aliases.conf##############
+
+
+template = friendly: By default, include friendly aliases
+template = asterisk_1dot2: Asterisk 1.2 style syntax
+template = asterisk_1dot4: Asterisk 1.4 style syntax
+template = individual_custom: see [individual_custom] example below which
+die die die=stop now
+voicemail reload=module reload app_voicemail.so
+mr=module reload
+die quickly=stop now
+
+
+###########cli_permissions.conf##############
+
+
+default_perm = permit | deny
+permit = <command name> | all: allow the user to run 'command' |
+deny = <command name> | all: disallow the user to run 'command' |
+default_perm=permit: To leave asterisk working as normal
+deny=all
+permit=sip show : all commands starting with 'sip show' will be allowed
+permit=core show
+permit=sip
+permit=core
+permit=sip show peer
+deny=sip show peers
+permit=core set
+permit=sip show
+permit=core set debug
+permit=dialplan show
+permit=all
+
+
+###########codecs.conf##############
+
+
+used only when vbr = false
+available bit rate [bps, 0 = off]
+type=peer
+host=dynamic
+disallow=all
+allow=silk8 :custom codec defined in codecs.conf
+fec=true : turn on or off encoding with forward error correction.
+packetloss_percentage=10 : Estimated packet loss percentage in uplink direction.This
+maxbitrate=10000: Use the table below to make sure a useful bitrate is choosen
+dtx=true : Encode using discontinuous transmission mode or not. Turning this
+packetloss_percentage=10:
+type=celt
+samprate=44100: The samplerate in hz. This option is required.
+framesize=480 : The framesize option represents the duration of each frame in samples.
+samprate=48000
+samprate=32000
+type= : Must be of type "opus" (default: "")
+packet_loss= : Encoder's packet loss percentage. Can be any number between 0
+complexity= : Encoder's computational complexity. Can be any number between 0
+max_bandwitdth= : Encoder's maximum bandwidth allowed. Sets an upper bandwidth
+signal= : Encoder's signal type. Aids in mode selection on the encoder: Can
+application= : Encoder's application type. Can be any of the following: voip,
+max_playback_rate= : Override the maximum playback rate in the offer's SDP.
+bitrate= : Override the maximum average bitrate in the offer's SDP. Any value
+cbr= : Override the constant bit rate parameter in the offer's SDP. A value of
+fec= : Override the use inband fec parameter in the offer's SDP. A value of
+dtx= : Override the use dtx parameter in the offer's SDP. A value of 0/false/no
+type=opus
+max_playback_rate=8000 : Limit the maximum playback rate on the encoder
+fec=no : Force no inband fec on the encoder (i.e don't use what's on the SDP)
+max_bandwidth=wide : Maximum encoded bandwidth set to wide band (0-8000 Hz
+cbr=yes : Force a constant bit rate (i.e don't use what's on the SDP)
+
+
+###########confbridge.conf##############
+
+
+admin=yes : Sets if the user is an admin or not. Off by default.
+marked=yes: Sets if this is a marked user or not. Off by default.
+startmuted=yes: Sets if all users should start out muted. Off by default
+music_on_hold_when_empty=yes: Sets whether MOH should be played when only
+music_on_hold_class=default : The MOH class to use for this user.
+quiet=yes : When enabled enter/leave prompts and user intros are not played.
+announce_user_count=yes: Sets if the number of users should be announced to the
+announce_user_count_all=yes : Sets if the number of users should be announced to
+announce_only_user=yes : Sets if the only user announcement should be played
+wait_marked=yes : Sets if the user must wait for a marked user to enter before
+end_marked=yes : This option will kick every user with this option set in their
+dsp_drop_silence=yes: This option drops what Asterisk detects as silence from
+dsp_talking_threshold=128: The time in milliseconds of sound above what the dsp has
+dsp_silence_threshold=2000 : The time in milliseconds of sound falling within the what
+talk_detection_events=yes : This option sets whether or not notifications of when a user
+denoise=yes : Sets whether or not a denoise filter should be applied
+jitterbuffer=yes: Enabling this option places a jitterbuffer on the user's audio stream
+pin=1234: Sets if this user must enter a PIN number before entering
+announce_join_leave=yes : When enabled, this option will prompt the user for a
+announce_join_leave_review=yes : When enabled, implies announce_join_leave, but the user
+dtmf_passthrough=yes: Sets whether or not DTMF should pass through the conference.
+announcement=</path/to/file> : Play a sound file to the user when they join the conference.
+timeout=3600 : When set non-zero, this specifies the number of seconds that the participant
+max_members=50: This option limits the number of participants for a single
+record_conference=yes : Records the conference call starting when the first user
+record_file=</path/to/file> : When record_conference is set to yes, the specific name of the
+record_file_append=yes: Append record file when starting/stopping on same conference recording.
+record_file_timestamp=yes : Append the start time to the record file name.
+record_options= : Pass additional options to MixMonitor.
+record_command=</path/to/command> : Command to execute when recording finishes.
+internal_sample_rate=auto : Sets the internal native sample rate the
+mixing_interval=40 : Sets the internal mixing interval in milliseconds for the bridge.This
+video_mode = follow_talker: Sets how confbridge handles video distribution to the conference participants.
+language=en : Set the language used for announcements to the conference.
+regcontext=conferences: The name of the context into which to register conference names as extensions.
+the option.Example: sound_had_joined=conf-hasjoinThis will play the conf-hasjoin
+5=reset_talking_volume, reset_listening_volume
+*2=admin_toggle_conference_lock : only applied to admin users
+2=admin_toggle_conference_lock: only applied to admin users
+*3=admin_kick_last : only applied to admin users
+3=admin_kick_last: only applied to admin users
+
+
+###########config_test.conf##############
+
+
+
+
+###########console.conf##############
+
+
+autoanswer = no
+context = default
+extension = s
+callerid = MyName Here <(256) 428-6000>
+language = en
+overridecontext = no: if 'no', the last @ will start the context
+Set(CHANNEL(musicclass)=whatever) in the dialplan and the peer channel
+mohinterpret=default
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of an
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a Console
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+input_device = default : When configuring an input device and output device,
+output_device = default: use the name that you see when you run the "console
+active = yes : This option should only be set for one console.
+
+
+###########dbsep.conf##############
+
+
+# Typically, this will be along the lines of 'DBI:mysql:astdbname[:dbhostname]' or 'DBI:Pg:dbname=astdbname:hostname=dbhostname'
+
+
+###########dnsmgr.conf##############
+
+
+enable=yes: enable creation of managed DNS lookups
+refreshinterval=1200: refresh managed DNS lookups every <n> seconds
+
+
+###########dsp.conf##############
+
+
+to talking.[default=256]
+silencethreshold=256
+RADIO_RELAX disabled, and relaxdtmf=no
+RADIO_RELAX disabled, and relaxdtmf=yes
+RADIO_RELAX enabled, and relaxdtmf=no
+RADIO_RELAX enabled, and relaxdtmf=yes
+dtmf_normal_twist=6.31
+dtmf_reverse_twist=2.51
+relax_dtmf_normal_twist=6.31
+relax_dtmf_reverse_twist=3.98
+dtmf_hits_to_begin=2
+dtmf_misses_to_end=3
+
+
+###########dundi.conf##############
+
+
+department=Your Department
+organization=Your Company, Inc.
+locality=Your City
+stateprov=ST
+country=US
+email=your@email.com
+phone=+12565551212
+bindaddr=0.0.0.0
+port=4520
+tos=ef
+entityid=00:07:E9:3B:76:60
+cachetime=3600
+secretpath=dundi
+storehistory=yes
+dundi_context => local_context,weight,tech,dest[,options]]
+mapping.The number must be >= 0 and < 60000.Since it is totally
+e164 => dundi-e164-canonical,0,IAX2,dundi:${SECRET}@${IPADDR}/${NUMBER},nounsolicited,nocomunsolicit,nopartial
+e164 => dundi-e164-customers,100,IAX2,dundi:${SECRET}@${IPADDR}/${NUMBER},nounsolicited,nocomunsolicit,nopartial
+e164 => dundi-e164-via-pstn,400,IAX2,dundi:${SECRET}@${IPADDR}/${NUMBER},nounsolicited,nocomunsolicit,nopartial
+digexten => default,0,IAX2,guest@lappy/${NUMBER}
+asdf =>
+testmap1 => context1,222,IAX2,guest@peer1/${NUMBER}
+testmap2 => context2,${DUNDITESTVAR},IAX2,guest@peer2${NUMBER}
+testmap3 => context3,${SHELL(echo 123)},IAX2,guest@peer3/${NUMBER}
+model = symmetric
+host = 64.215.96.114
+inkey = digium
+outkey = misery
+include = e164
+permit = e164
+qualify = yes
+host = misery.digium.com
+inkey = misery
+outkey = ourkey
+order = secondary
+model = inbound
+host = dynamic
+precache = inbound
+inkey = littleguy
+include = e164: In this case used only for precaching
+model = outbound
+precache = outbound
+host = 216.207.245.34
+register = yes
+inkey = dhcp34
+permit = all : In this case used only for precaching
+include = all
+outkey=foo
+
+
+###########enum.conf##############
+
+
+search => e164.org
+
+
+###########extconfig.conf##############
+
+
+file.conf => driver,database[,table[,priority]]
+queues.conf => odbc,asterisk,ast_config
+extensions.conf => sqlite,asterisk,ast_config
+example => odbc,asterisk,alttable,1
+example => mysql,asterisk,alttable,2
+example2 => ldap,"dc=oxymium,dc=net",example2
+iaxusers => odbc,asterisk
+iaxpeers => odbc,asterisk
+sippeers => odbc,asterisk
+sipregs => odbc,asterisk : (avoid sipregs if possible, e.g. by using a view)
+ps_endpoints => odbc,asterisk
+ps_auths => odbc,asterisk
+ps_aors => odbc,asterisk
+ps_domain_aliases => odbc,asterisk
+ps_endpoint_id_ips => odbc,asterisk
+voicemail => odbc,asterisk
+extensions => odbc,asterisk
+meetme => mysql,general
+queues => odbc,asterisk
+queue_members => odbc,asterisk
+queue_rules => odbc,asterisk
+acls => odbc,asterisk
+musiconhold => mysql,general
+queue_log => mysql,general
+switch => Realtime/[[db_context@]tablename]/<opts>
+
+
+###########extensions.ael##############
+
+
+CONSOLE-AEL="Console/dsp": // Console interface for demo
+CONSOLE-AEL=Zap/1:
+CONSOLE-AEL=Phone/phone0:
+IAXINFO-AEL=guest:// IAXtel username/password
+IAXINFO-AEL="myuser:mypass":
+OUTBOUND-TRUNK="Zap/g2":// Trunk interface
+OUTBOUND-TRUNKMSD=1:// MSD digits to strip (usually 1 or 0)
+OUTBOUND-TRUNK2=IAX2/user:pass@provider:
+ignorepat => 9:
+\12564286000 => &ael-std-exten(6000,IAX2/foo):
+_125642860XX => Dial(IAX2/otherbox/${EXTEN:7}):
+_12564286000 => Dial(SIP/customer1):
+_12564286001 => Dial(IAX2/customer2):
+_1256428XXXX => Dial(DAHDI/G2/${EXTEN:7}): // Expose all of 256-428
+_1256325XXXX => Dial(DAHDI/G2/${EXTEN:7}): // Ditto for 256-325
+_91700XXXXXXX => Dial(IAX2/${IAXINFO-AEL}@iaxtel.com/${EXTEN:1}@iaxtel):
+_91800NXXXXXX => Dial(${OUTBOUND-TRUNK}/${EXTEN:${OUTBOUND-TRUNKMSD}}):
+_91888NXXXXXX => Dial(${OUTBOUND-TRUNK}/${EXTEN:${OUTBOUND-TRUNKMSD}}):
+_91877NXXXXXX => Dial(${OUTBOUND-TRUNK}/${EXTEN:${OUTBOUND-TRUNKMSD}}):
+_91866NXXXXXX => Dial(${OUTBOUND-TRUNK}/${EXTEN:${OUTBOUND-TRUNKMSD}}):
+ignorepat => 9:
+Set(TIMEOUT(digit)=5):
+Set(TIMEOUT(response)=10):
+for (x=0: ${x} < 3: x=${x} + 1) {
+Set(LANGUAGE()=fr):
+_1234 => &ael-std-exten-ael(${EXTEN}, "IAX2"):
+t => goto #|1:
+i => Playback(invalid):
+_41X. => Dial(SIP/${EXTEN:2}@sipprovider,,r):
+_42X. => Dial(SIP/user:passwd@${EXTEN:2}@otherprovider.net,30,rT):
+6361 => Dial(IAX2/JaneDoe,,rm):// ring without time limit
+6389 => Dial(MGCP/aaln/1@192.168.0.14):
+6394 => Dial(Local/6275/n):// this will dial ${MARK}
+6275 => &ael-stdexten(6275,${MARK}): // assuming ${MARK} is something like DAHDI/2
+mark => goto 6275|1:// alias mark to 6275
+6536 => &ael-stdexten(6236,${WIL}):// Ditto for wil
+wil=> goto 6236|1:
+8600 => Meetme(1234):
+
+
+###########extensions.conf##############
+
+
+
+
+###########extensions.conf.sample##############
+
+
+writeprotect=no
+autofallthrough=no
+extenpatternmatchnew=no
+userscontext=default
+#exec /opt/bin/build-extra-contexts.sh --foo="bar"
+#exec </opt/bin/build-extra-contexts.sh --foo="bar">
+CONSOLE=Console/dsp: Console interface for demo
+CONSOLE=DAHDI/1
+CONSOLE=Phone/phone0
+IAXINFO=guest: IAXtel username/password
+IAXINFO=myuser:mypass
+TRUNK=DAHDI/G2: Trunk interface
+TRUNKMSD=1: MSD digits to strip (usually 1 or 0)
+TRUNK=IAX2/user:pass@provider
+FREENUMDOMAIN=mydomain.com : domain to send on outbound
+autohints = yes
+exten => someexten,{priority|label{+|-}offset}[(alias)],application(arg1,arg2,...)
+include => daytime,9:00-17:00,mon-fri,*,*
+include => weekend,*,sat-sun,*,*
+include => weeknights,17:02-8:58,mon-fri,*,*
+ignorepat => 9
+include => stdexten
+exten => 12564286000,1,Gosub(6000,stdexten(IAX2/foo))
+exten => 12564286000,n,Goto(default,s,1): exited Voicemail
+exten => _125642860XX,1,Dial(IAX2/otherbox/${EXTEN:7})
+exten => _12564286000,1,Dial(SIP/customer1)
+exten => _12564286001,1,Dial(IAX2/customer2)
+exten => _1256428XXXX,1,Dial(DAHDI/G2/${EXTEN:7}) : Expose all of 256-428
+exten => _1256325XXXX,1,Dial(DAHDI/G2/${EXTEN:7}) : Ditto for 256-325
+switch => IAX2/user:[key]@myserver/mycontext
+switch => IAX2/user:password@bigserver/local
+lswitch => Loopback/12${EXTEN}@othercontext
+eswitch => IAX2/context@${CURSERVER}
+include => outbound-freenum
+same => n,Set(SUFFIX=${CUT(EXTEN,*,2-)}): make sure the suffix is all digits as well
+same => n,Set(isnresult=${ENUMLOOKUP(${EXTEN},sip,,1,freenum.org)}) : perform our lookup with freenum.org
+same => n,GotoIf($["${GLOBAL(FREENUMDOMAIN)}" = ""]?dial) : check if we set the FREENUMDOMAIN global variable in [global]
+same => n,Set(__SIPFROMDOMAIN=${GLOBAL(FREENUMDOMAIN)}) :if we did set it, then we'll use it for our outbound dialing domain
+exten => _X.,n,Dial(${dev},20): Ring the interface, 20 seconds maximum
+exten => _X.,n,Goto(stdexten-${DIALSTATUS},1): Jump based on status (NOANSWER,BUSY,CHANUNAVAIL,CONGESTION,ANSWER)
+exten => stdexten-NOANSWER,1,Voicemail(${mbx},u): If unavailable, send to voicemail w/ unavail announce
+exten => stdexten-NOANSWER,n,Return(): If they press #, return to start
+exten => stdexten-BUSY,1,Voicemail(${mbx},b): If busy, send to voicemail w/ busy announce
+exten => stdexten-BUSY,n,Return(): If they press #, return to start
+exten => _stde[x]te[n]-.,1,Goto(stdexten-NOANSWER,1): Treat anything else as no answer
+exten => a,1,VoicemailMain(${mbx}): If they press *, send the user into VoicemailMain
+exten => _X.,n,Dial(${dev},20,p): Ring the interface, 20 seconds maximum, call screening
+exten => stdexten-DONTCALL,1,Goto(${dontcntx},s,1): Callee chose to send this call to a polite "Don't call again" script.
+exten => stdexten-TORTURE,1,Goto(${tortcntx},s,1): Callee chose to send this call to a telemarketer torture script.
+exten => s,1,ChanIsAvail(${ARG1},s): s is for ANY call
+exten => s,n(autoanswer),Set(_ALERT_INFO="RA"): This is for the PolyComs
+exten => s,n,SIPAddHeader(Call-Info: Answer-After=0): This is for the Grandstream, Snoms, and Others
+exten => s,n,NoOp(): Add others here and Post on the Wiki!!!!
+exten => s,1,Wait(1): Wait a second, just for fun
+exten => s,n,Answer: Answer the line
+exten => s,n,Set(TIMEOUT(digit)=5): Set Digit Timeout to 5 seconds
+exten => s,n,Set(TIMEOUT(response)=10): Set Response Timeout to 10 seconds
+exten => s,n(restart),BackGround(demo-congrats): Play a congratulatory message
+exten => s,n(instruct),BackGround(demo-instruct): Play some instructions
+exten => s,n,WaitExten: Wait for an extension to be dialed.
+exten => 2,1,BackGround(demo-moreinfo): Give some more information.
+exten => 3,1,Set(CHANNEL(language)=fr): Set language to french
+exten => 3,n,Goto(s,restart): Start with the congratulations
+exten => 1234,1,Playback(transfer,skip): "Please hold while..."
+exten => 1234,n,Goto(default,s,1): exited Voicemail
+exten => 1235,1,Voicemail(1234,u): Right to voicemail
+exten => 1236,1,Dial(Console/dsp): Ring forever
+exten => 1236,n,Voicemail(1234,b): Unless busy
+exten => #,1,Playback(demo-thanks): "Thanks for trying the demo"
+exten => #,n,Hangup: Hang them up.
+exten => t,1,Goto(#,1): If they take too long, give up
+exten => i,1,Playback(invalid): "That's not valid, try again"
+exten => 500,1,Playback(demo-abouttotry): Let them know what's going on
+exten => 500,n,Dial(IAX2/guest@pbx.digium.com/s@default): Call the Asterisk demo
+exten => 500,n,Playback(demo-nogo): Couldn't connect to the demo site
+exten => 500,n,Goto(s,6): Return to the start over message.
+exten => 600,1,Playback(demo-echotest): Let them know what's going on
+exten => 600,n,Echo: Do the echo test
+exten => 600,n,Playback(demo-echodone): Let them know it's over
+exten => 600,n,Goto(s,6): Start over
+exten => 1265,1,Dial(Phone/phone0,15)
+exten => 1265,n,Goto(s,5)
+exten => s,1,Answer
+exten => s,n,Background(thanks): "Thanks for calling press 1 for sales, 2 for support, ..."
+exten => s,n,WaitExten
+exten => 1,1,Goto(submenu,s,1)
+exten => 2,1,Hangup
+include => default
+exten => s,1,Ringing: Make them comfortable with 2 seconds of ringback
+exten => s,n,Wait,2
+exten => s,n,Background(submenuopts): "Thanks for calling the sales department.Press 1 for steve, 2 for..."
+exten => 1,1,Goto(default,steve,1)
+exten => 2,1,Goto(default,mark,2)
+exten => _41X.,1,Dial(SIP/${FILTER(0-9,${EXTEN:2})}@sipprovider,,r)
+exten => 6245,hint,SIP/Grandstream1&SIP/Xlite1(Joe Schmoe) : Channel hints for presence
+exten => 6245,1,Dial(SIP/Grandstream1,20,rt): permit transfer
+exten => 6245,n(dial),Dial(${HINT},20,rtT): Use hint as listed
+exten => 6245,n,Voicemail(6245,u): Voicemail (unavailable)
+exten => 6245,s+1,Hangup: s+1, same as n
+exten => 6245,dial+101,Voicemail(6245,b): Voicemail (busy)
+exten => 6361,1,Dial(IAX2/JaneDoe,,rm): ring without time limit
+exten => 6389,1,Dial(MGCP/aaln/1@192.168.0.14)
+exten => 6390,1,Dial(JINGLE/caller/callee) : Dial via jingle using labels
+exten => 6391,1,Dial(JINGLE/asterisk@digium.com/mogorman@astjab.org) :Dial via jingle using asterisk as the transport and calling mogorman.
+exten => 6394,1,Dial(Local/6275/n): this will dial ${MARK}
+exten => 6275,1,Gosub(${EXTEN},stdexten(${MARK}))
+exten => 6275,n,Goto(default,s,1): exited Voicemail
+exten => mark,1,Goto(6275,1): alias mark to 6275
+exten => 6536,1,Gosub(${EXTEN},stdexten(${WIL}))
+exten => 6536,n,Goto(default,s,1): exited Voicemail
+exten => wil,1,Goto(6236,1)
+exten => 6600,hint,park:701@parkedcalls
+exten => 6600,1,noop
+exten => 8501,hint,Queue:markq_avail
+exten => 8501,1,Queue(markq)
+exten => 8502,hint,Queue:markq
+exten => 8502,1,Queue(markq)
+exten => 8500,1,VoicemailMain
+exten => 8500,n,Hangup
+exten => 8600,1,Meetme(1234)
+exten = 8700,1,Dial(${MARK},30,A(/path/to/my/announcemsg))
+exten => s,1,Wait(1)
+exten => s,n,Answer()
+exten => s,n(menu),Playback(acme/vm-brief-menu)
+exten => s,n(exten),Background(vm-enter-num-to-call)
+exten => s,n,WaitExten(5)
+exten => s,n(goodbye),Playback(vm-goodbye)
+exten => s,n(end),Hangup()
+include=> acme-extens
+exten => i,1,Playback(vm-invalid)
+exten => i,n,Goto(s,exten): optionally, transfer to operator
+exten => t,1,Goto(s,goodbye)
+exten => s,1,Answer()
+include => trunkint
+include => trunkld
+include => trunklocal
+include => acme-extens
+exten => 777,1,DISA(no-password,acme-incoming)
+exten => 111,1,Gosub(111,stdexten(SIP/pete_1,acme))
+exten => 111,n,Goto(s,exten)
+exten => 112,1,Gosub(112,stdexten(SIP/nancy_1,acme))
+exten => 112,n,Goto(s,end)
+exten => 777,1,Gosub(time)
+exten => 777,n,Hangup()
+include => time
+type=friend
+context=acme-internal
+callerid="Boise Ofc. <2083451111>"
+callerid="Lewiston Ofc. <2087431111>"
+setvar=timezone=PST8PDT
+exten => _X.,n,SayDigits(${CALLERID(ani)}): playback again in case of missed digit
+
+
+###########extensions.lua##############
+
+
+-- ["_special."] = function:
+-- ["_special!"] = function:
+-- include = {"a", "b", "c"}:
+s = demo_start:
+["#"] = demo_hangup:
+t = demo_hangup:
+include = {"demo"}:
+["_NXXXXXX"] = outgoing_local:
+[1000] = "SIP/1000":
+[1001] = "SIP/1001":
+["1234"] = "SIP/1234":
+
+
+###########extensions_minivm.conf##############
+
+
+This requires setvar=customerclass=gold in the account configuration
+exten => minivm,n,wait(0.5): Wait for Voip channels to settle
+
+
+###########features.conf##############
+
+
+transferdigittimeout => 3: Number of seconds to wait between digits when transferring a call
+xfersound = beep : to indicate an attended transfer is complete
+xferfailsound = beeperr: to indicate a failed transfer
+pickupexten = *8 : Configure the pickup extension. (default is *8)
+pickupsound = beep : to indicate a successful pickup (default: no sound)
+pickupfailsound = beeperr: to indicate that the pickup failed (default: no sound)
+featuredigittimeout = 1000 : Max time (ms) between digits for
+recordingfailsound = beeperr : indicates that a one-touch monitor or one-touch mixmonitor feature failed
+atxfernoanswertimeout = 15 : Timeout for answer on attended transfer default is 15 seconds.
+atxferdropcall = no: If someone does an attended transfer, then hangs up before the transfer
+atxferloopdelay = 10 : Number of seconds to sleep between retries (if atxferdropcall = no)
+atxfercallbackretries = 2: Number of times to attempt to send the call back to the transferer.
+transferdialattempts = 3 : Number of times that a transferer may attempt to dial an extension before
+transferretrysound = "beep": Sound to play when a transferer fails to dial a valid extension.
+transferinvalidsound = "beeperr" : Sound to play when a transferer fails to dial a valid extension and is out of retries.
+atxferabort = *1 : cancel the attended transfer
+atxfercomplete = *2: complete the attended transfer, dropping out of the call
+atxferthreeway = *3: complete the attended transfer, but stay in the call. This will turn the call into a multi-party bridge
+atxferswap = *4: swap to the other party. Once an attended transfer has begun, this options may be used multiple times
+blindxfer => #1: Blind transfer(default is #) -- Make sure to set the T and/or t option in the Dial() or Queue() app call!
+disconnect => *0 : Disconnect(default is *) -- Make sure to set the H and/or h option in the Dial() or Queue() app call!
+automon => *1: One Touch Record a.k.a. Touch Monitor -- Make sure to set the W and/or w option in the Dial() or Queue() app call!
+atxfer => *2 : Attended transfer-- Make sure to set the T and/or t option in the Dial() or Queue()app call!
+parkcall => #72: Park call (one step parking)-- Make sure to set the K and/or k option in the Dial() app call!
+automixmon => *3 : One Touch Record a.k.a. Touch MixMonitor -- Make sure to set the X and/or x option in the Dial() or Queue() app call!
+Set(__DYNAMIC_FEATURES=myfeature1#myfeature2#myfeature3)
+<FeatureName> => <DTMF_sequence>,<ActivateOn>[/<ActivatedBy>],<Application>[,<AppArguments>[,MOH_Class]]
+<FeatureName> => <DTMF_sequence>,<ActivateOn>[/<ActivatedBy>],<Application>[,"<AppArguments>"[,MOH_Class]]
+<FeatureName> => <DTMF_sequence>,<ActivateOn>[/<ActivatedBy>],<Application>([<AppArguments>])[,MOH_Class]
+testfeature => #9,peer,Playback,tt-monkeys:Allow both the caller and callee to play
+retrieveinfo => #8,peer,Set(ARRAY(CDR(mark),CDR(name))=${ODBC_FOO(${CALLERID(num)})})
+pauseMonitor => #1,self/callee,Pausemonitor :Allow the callee to pause monitoring
+unpauseMonitor => #3,self/callee,UnPauseMonitor :Allow the callee to unpause monitoring
+testfeature => #9 : associates testfeature with the group and the keycode '#9'.
+pauseMonitor => : associates pauseMonitor with the group and uses the keycode specified
+
+
+###########festival.conf##############
+
+
+host=localhost
+port=1314
+usecache=yes
+If usecache=yes, a directory to store waveform cache files.
+cachedir=/var/lib/asterisk/festivalcache/
+
+
+###########followme.conf##############
+
+
+number=> <number to call[&2nd #[&...]]>[,<timeout value in seconds>[,<order in follow-me>]]
+
+
+###########func_odbc.conf##############
+
+
+single_db_connection=no
+associated with a channel, mode=multirow is incompatible with
+that query.For mode=multirow, otherwise, func_odbc will
+dsn=mysql1,mysql2 : Use mysql1 as the primary handle, but fall back to mysql2
+
+
+###########hep.conf##############
+
+
+enabled = no : Enable/disable forwarding of packets to a
+capture_address = 192.168.1.1:9061 : The address of the HEP capture server.
+capture_password = foo : If specified, the authorization passsword
+capture_id = 1234: A unique integer identifier for this
+uuid_type = call-id: Specify the preferred source for the Homer
+
+
+###########http.conf##############
+
+
+enabled=yes
+bindport=8088
+prefix=asterisk
+sessionlimit=100
+session_inactivity=30000
+session_keep_alive=15000
+enablestatic=yes
+Syntax: redirect=<from here> <to there>
+redirect = / /static/config/index.html
+HTTPS support. In addition to enabled=yes, you need to
+tlsenable=yes: enable tls - default no.
+tlsbindaddr=0.0.0.0:8089: address and port to bind to - default is bindaddr and port 8089.
+tlscertfile=</path/to/certificate.pem>: path to the certificate file (*.pem) only.
+tlsprivatekey=</path/to/private.pem>: path to private key file (*.pem) only.
+tlscipher= : The list of allowed ciphers
+tlsdisablev1=yes: Disable TLSv1 support - if not set this defaults to "yes"
+tlsdisablev11=yes : Disable TLSv1.1 support - if not set this defaults to "no"
+tlsdisablev12=yes : Disable TLSv1.2 support - if not set this defaults to "no"
+tlsservercipherorder=yes: Use the server preference order instead of the client order
+uploads = /var/lib/asterisk/uploads/
+
+
+###########iax.conf##############
+
+
+
+
+###########iax.conf.sample##############
+
+
+bindport=4569 : The default port to listen on
+bindaddr=192.168.0.1: You can specify 'bindaddr' more than once to bind to
+iaxcompat=yes
+nochecksums=yes
+delayreject=yes
+amaflags=billing
+adsi=yes
+srvlookup=yes
+accountcode=lss0101
+language=en
+mohinterpret=default
+mohsuggest=default
+allow=all
+disallow=g723.1
+allow=gsm
+jitterbuffer=yes|no: global default as to whether you want
+maxjitterbuffer=1000
+maxjitterinterps=10
+resyncthreshold=1000
+jittertargetextra=40
+encryption=yes
+forceencryption=yes
+(8000hz / 1000ms) * 20ms * 1 byte per sample = 160 bytes per frame
+(160 bytes per frame) * (800 calls) = 128000 bytes
+trunkmaxsize = 128000 : defaults to 128000 bytes, which supports up to 800
+trunkmtu = 1240: trunk data will be sent in 1240 byte messages.
+trunkfreq=20: How frequently to send trunk msgs (in ms). This is 20ms by
+trunktimestamps=yes
+minregexpire = 60
+maxregexpire = 60
+iaxthreadcount = 10
+iaxmaxthreadcount = 100
+register => marko:secretpass@tormenta.linux-support.net
+register => joe@remotehost:5656
+register => marko:[torkey]@tormenta.linux-support.net
+register => user:pass@iaxtel.com
+register => FWDNumber:passwd@iax.fwdnet.net
+subscribe_network_change_event = yes : on by default
+authdebug = yes
+tos=ef
+cos=5
+regcontext=iaxregistrations
+codecpriority=host
+allowfwdownload=yes
+rtcachefriends=yes : Cache realtime friends by adding them to the internal list
+rtsavesysname=yes: Save systemname in realtime database at registration
+rtupdate=yes : Send registry updates to database using realtime? (yes|no)
+rtautoclear=yes: Auto-Expire friends created on the fly on the same schedule
+rtignoreregexpire=yes : When reading a peer from Realtime, if the peer's registration
+parkinglot=edvina : Default parkinglot for IAX2 peers and users
+calltokenoptional=209.16.236.73/255.255.255.0
+requirecalltoken=no: call token validation becomes optional for that peer/user.
+requirecalltoken=auto
+requirecalltoken=yes : by default
+requirecalltoken=no
+calltokenexpiration=10
+maxcallnumbers=512
+maxcallnumbers_nonvalidated=1024
+10.1.2.0/255.255.255.0 = 32
+shrinkcallerid=yes : on by default
+type=user
+dbsecret=dundi/secret
+context=dundi-e164-local
+context=default
+context=local
+auth=md5,plaintext,rsa
+secret=markpasswd
+setvar=ATTENDED_TRANSFER_COMPLETE_SOUND=beep : This channel variable will
+dbsecret=mysecrets/place: Secrets can be stored in astdb, too
+transfer=no : Disable IAX2 native transfer
+transfer=mediaonly: When doing IAX2 native transfers, transfer only
+jitterbuffer=yes: Override the global setting and enable the jitter
+maxauthreq=10 : Set the maximum number of outstanding AUTHREQs
+callerid="Mark Spencer" <(256) 428-6275>
+deny=0.0.0.0/0.0.0.0
+accountcode=markster0101
+permit=209.16.236.73/255.255.255.0
+language=en : Use english as default language
+encryption=yes: Enable IAX2 encryption.The default is no.
+keyrotate=off : This is a compatibility option for older versions
+description=Demo System At Digium: Description of this peer, as listed by
+sendani=no
+host=asterisk.linux-support.net
+port=5036
+mask=255.255.255.255
+qualify=yes: Make sure this peer is alive.
+qualifysmoothing = yes : Use an average of the last two PONG results to
+qualifyfreqok = 60000: How frequently to ping the peer when everything
+qualifyfreqnotok = 10000 : How frequently to ping the peer when it's either
+jitterbuffer=no: Turn off jitter buffer for this peer
+encryption=yes : Enable IAX2 encryption.The default is no.
+keyrotate=off: This is a compatibility option for older versions
+connectedline=yes : Set if connected line and redirecting information updates
+host=dynamic
+secret=mysecret
+mailbox=1234: Notify about mailbox 1234
+inkeys=key1:key2
+peercontext=local: Default context to request for calls to peer
+defaultip=216.207.245.34
+callerid="Some Host" <(256) 428-6011>
+type=peer
+host=192.168.0.1
+description=Gateway to PSTN
+context=*
+secret=myscret
+trunk=yes: Use IAX2 trunking with this host
+timezone=America/New_York: Set a timezone for the date/time IE
+type=friend
+regexten=1234
+secret=moofoo : Multiple secrets may be specified. For a "user", all
+secret=foomoo : specified entries will be accepted as valid. For a "peer",
+secret=shazbot: only the last specified secret will be used.
+permit=0.0.0.0/0.0.0.0
+acl=example_named_acl
+With immediate=yes, an IAX2 phone or a phone on an IAXy acts as a hot-line
+immediate=yes: go immediately to s extension when picked up
+secret=moofoo: when immediate=yes is specified, secret is required
+context=number-please : we start at the s extension in this context
+
+
+###########iaxprov.conf##############
+
+
+port=4569
+server=192.168.69.3
+altserver=192.168.69.4
+serverport=4569
+language=en
+tos=ef
+user=iaxy
+pass=bitsy
+flags += debug
+user=iaxy2
+pass=bitsy2
+template=si-000364000126
+template=default
+
+
+###########indications.conf##############
+
+
+country=us: default location
+description = string
+ringcadence = num[,num]*
+dial = tonelist
+busy = tonelist
+congestion = tonelist
+callwaiting = tonelist
+dialrecall = tonelist
+record = tonelist
+info = tonelist
+'name' = tonelist
+element = [!]freq[+|*freq2][/duration]
+tonelist = element[,element]*
+Reference = http://www.telepermit.co.nz/TNA102.pdf
+stutter = 425/320,0/20: Real swedish standard, not used for now
+ring= 425*24/400,0/200,425*24/400,0/2000 : modulation should be 100%, not 90%
+info= 950/330,1400/330,1800/330,0/1000 : not currently in use acc. to reference
+dialrecall= 425*24/500,0/500,425/500,0/2500: unspecified in IDA reference, use repeating Holding Tone A,B
+record= 1400/500,0/15000 : unspecified in IDA reference, use 0.5s tone every 15s
+warning = 425/624,0/4376 : end of period tone, warning
+holdinga= !425*24/500,!0/500 : followed by holdingb
+dial = 383+417
+ring = 383+417/400,0/200,383+417/400,0/2000
+callwaiting = 383+417/250,0/250,383+417/250,0/250,383+417/250,0/250,383+417/250,0/250
+
+
+###########logger.conf##############
+
+
+dateformat=%F %T : ISO 8601 date format
+dateformat=%F %T.%3q : with milliseconds
+use_callids = no
+appendhostname = yes
+queue_log = no
+queue_log_to_file = yes
+queue_log_name = queue_log
+queue_log_realtime_use_gmt = yes
+rotatestrategy = rotate
+useful for rotatestrategy=rotate. The example allows the last
+exec_after_rotate=gzip -9 ${filename}.2
+logger_name => [formatter]levels
+debug => debug
+security => security
+console => notice,warning,error,debug
+full => notice,warning,error,debug,verbose,dtmf,fax
+full-json => [json]debug,verbose,notice,warning,error,dtmf,fax
+syslog.local0 => notice,warning,error
+
+
+###########manager.conf##############
+
+
+tlsenable=no: set to YES to enable it
+tlsbindaddr=0.0.0.0:5039: address and port to bind to, default to bindaddr and port 5039
+tlscertfile=/tmp/asterisk.pem: path to the certificate.
+tlsprivatekey=/tmp/private.pem : path to the private key, if no private given,
+tlscipher=<cipher string>: string specifying which SSL ciphers to use or not use
+allowmultiplelogin = yes: IF set to no, rejects manager logins that are already in use.
+displayconnects = yes
+timestampevents = yes
+brokeneventsaction = yes : Restore previous behavior that caused the events
+channelvars = var1,var2,var3
+debug = on: enable some debugging info in AMI messages (default off).
+authlimit = 50
+httptimeout = 60
+on a action=waitevent request (actually its httptimeout-10)
+deny=0.0.0.0/0.0.0.0
+acl=named_acl_example : use a named ACL from acl.conf
+setvar=PBXACCOUNT=edvina
+originates a call. You can define multiple setvar= commands for one manager
+eventfilter=Event: Newchannel
+eventfilter=Channel: (PJ)?SIP/(james|jim|john)-
+eventfilter=!Channel: DAHDI/
+writetimeout = 1000
+displayconnects = yes: Display on CLI user login/logoff
+read = all
+write = all
+
+
+###########meetme.conf##############
+
+
+audiobuffers=32: The number of 20ms audio buffers to be used
+schedule=yes
+logmembercount=no
+fuzzystart=300
+earlyalert=3600
+endalert=120
+Usage is conf => confno[,pin][,adminpin]
+conf => 1234
+conf => 2345,9938
+
+
+###########mgcp.conf##############
+
+
+port = 2427
+bindaddr = 0.0.0.0
+tos=cs3: Sets TOS for signaling packets.
+tos_audio=ef: Sets TOS for RTP audio packets.
+cos=3: Sets 802.1p priority for signaling packets.
+cos_audio=5: Sets 802.1p priority for RTP audio packets.
+firstdigittimeout = 30000 : default 16000 = 16s
+gendigittimeout = 10000 : default8000 = 8s 
+matchdigittimeout = 5000: defaults 3000 = 3s
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbforce = no: Forces the use of a jitterbuffer on the receive side of a MGCP
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a MGCP
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+host = 192.168.0.64
+context = default
+directmedia = no
+line => aaln/2
+line => aaln/1
+context=local 
+host=192.168.1.20 
+callerid = "John Doe" <123> 
+callgroup=0: in the range from 0 to 63
+pickupgroup=0: in the range from 0 to 63
+nat=no 
+threewaycalling=yes 
+transfer=yes : transfer requires threewaycalling=yes. Use FLASH to transfer
+callwaiting=yes: this might be a cause of trouble for ip10s
+cancallforward=yes 
+line => aaln/1 
+context=local
+host=dynamic
+dtmfmode=none: DTMF Mode can be 'none', 'rfc2833', or 'inband' or
+slowsequence=yes: The DPH100M does not follow MGCP standards for sequencing
+accountcode= 1000: record this in cdr as account identification for billing
+amaflags= billing: record this in cdr as flagged for 'billing',
+context= local
+host= 192.168.1.20
+wcardep= aaln/*: enables wildcard endpoint and sets it to 'aaln/*' 
+callerid = "Duane Cox" <123>: now lets setup line 1 using per endpoint configuration...
+callwaiting= no
+callreturn= yes
+cancallforward = yes
+directmedia= no
+transfer= no
+dtmfmode= inband
+setvar=one=1 : Set channel variables associated with this incoming line
+setvar=two=2
+line => aaln/1: now lets save this config to line1 aka aaln/1
+clearvars=all: Reset list of variables back to none
+callerid = "Duane Cox" <456>: now lets setup line 2
+line => aaln/2: now lets save this config to line2 aka aaln/2
+host= 10.0.1.3
+callwaiting = 1
+canreinvite = 1
+dtmfmode= rfc2833
+amaflags= BILLING
+ncs = yes : Use NCS 1.0 signalling
+pktcgatealloc = yes : Allocate DQOS gate on CMTS
+hangupongateremove = yes : Hangup the channel if the CMTS close the gate
+callerid= 3622622225
+accountcode = test-3622622225
+line= aaln/1
+callerid= 3622622226
+accountcode = test-3622622226
+line= aaln/2
+
+
+###########minivm.conf##############
+
+
+format=gsm
+logfile=/var/log/asterisk/minivm.log
+serveremail=asterisk@asterisk.example.com
+minmessage=3
+maxgreet=120
+externnotify=/usr/bin/myapp
+charset=ISO-8859-1
+pbxskip=yes
+mailcmd=/usr/sbin/sendmail -t
+fromstring=The Asterisk PBX
+emailsubject=[PBX]: New message ${MVM_COUNER} in mailbox ${VM_MAILBOX}
+emaildateformat=%A, %d %B %Y at %H:%M:%S
+pagerfromstring=The Asterisk PBX
+pagersubject=New VM ${MVM_COUNTER}
+hears here. Set the user into one of these zones with the tz= attribute
+fromaddress = Your Friendly Asterisk Server
+fromemail = asteriskvm@digium.com
+subject = <string>
+attachmedia = yes | no: Add media file as attachment?
+dateformat = <formatstring> : See above
+charset = <charset>: Mime charset definition for e-mail messages
+locale = <locale>: Locale for LC_TIME - to get weekdays in local language
+templatefile = <filename>: File name (relative to Asterisk configuration directory,
+messagebody = Format: Message body definition with variables
+templatefile = templates/pager_sv_se.txt
+subject = Du har f�tt voicemail
+charset=iso-8859-1
+attachmedia=no
+locale=sv_SE
+templatefile = templates/email_nb_NO.txt
+locale=nb_NO
+templatefile = templates/email_en_US.txt
+subject = Y'all got voicemail, honey!
+charset=ascii
+templatefile = templates/email_en_us.txt
+subject = Dear old chap, you've got an electronic communique
+etemplate = sv_SE: Email template from [templates]
+ptemplate = en_US: Pager template from [templates]
+email = userpart@domain: Extra e-mail address (overrides mailbox name)
+pager = pageremail@domain: E-mail address for pager messages
+fullname = Mark Spencer: Full name(MWM_NAME)
+options =: E-mail options, se below
+accountcode =: Account code (read in dialplan function MINIVMACCOUNT)
+pincode =: Numeric pin code (read in dialplan function MINIVMACCOUNT)
+timezone=se: Time zone
+serveremail = asterisk@digium.com: Who to send email from (overrides template if set)
+externnotify = <application>: External application for this account
+volgain =: Volume gain setting (requires "sox")
+setvar=SERVICENAME=Voop.com Networks : Extra variables to use in template
+setvar=customerdomain=example.com
+setvar=customerclass=gold
+etemplate = sv_se_email
+serveremail = voicemail@example.com
+fullname = Olle E. Johansson
+
+
+###########misdn.conf##############
+
+
+tracefile=/var/log/asterisk/misdn.log
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbforce = no: Forces the use of a jitterbuffer on the receive side of a SIP
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a SIP
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+explicitly set with Set(CHANNEL(musicclass)=whatever) and
+allowed_bearers=speech,3_1khz
+unknownprefix=
+internationalprefix=00
+nationalprefix=0
+netspecificprefix=
+subscriberprefix=
+abbreviatedprefix=
+dialplan, you can choose yes=4 Seconds, no, or specify the amount
+always_immediate=no
+with always_immediate=yes, else chan_misdn generates the dialtone
+immediate=no
+hold_allowed=yes
+default values: not set = 0
+callgroup=1
+pickupgroup=1
+namedcallgroup=engineering,sales,netgroup,protgroup
+namedpickupgroup=sales
+callerid="name" <number>
+s=0, p=0 -> callerid presented
+s=1, p=1 -> callerid restricted (the remote end does not see it!)
+default values s=-1, p=-1
+incoming_cid_tag = "asterisk"
+append_msn_to_cid_tag = no
+possible values are: 0,32,64,128,256,yes(=128),no(=0)
+echocancel=no
+
+
+###########modules.conf##############
+
+
+preload => res_odbc.so
+preload => res_config_odbc.so
+preload => res_speech.so
+require = chan_sip.so
+preload-require = res_odbc.so
+load => pbx_gtkconsole.so
+noload => chan_oss.so
+
+
+###########motif.conf##############
+
+
+context=incoming-motif : Default context that incoming sessions will land in
+maxicecandidates = 10 : Maximum number of ICE candidates we will offer
+maxpayloads = 30: Maximum number of payloads we will offer
+transport=ice-udp : Change the default protocol of outgoing sessions to Jingle ICE-UDP
+allow=g722: Add G.722 as an allowed format since the other side may support it
+connection=local-jabber-account : Connection to accept traffic on and send traffic out
+accountcode=jingle: Account code for CDR purposes
+transport=google : Since this is a Google Talk endpoint we want to offer Google Jingle for outgoing sessions
+connection=gtalk-account
+transport=google-v1 : Google Voice uses the original Google Talk protocol
+connection=gvoice-account
+
+
+###########musiconhold.conf##############
+
+
+cachertclasses=yes : use 1 instance of moh class for all users who are using it,
+preferchannelclass=yes : Prefer the musicclass as defined by CHANNEL(musicclass),
+mode=files
+directory=moh
+digit=#: If this option is set for a class, then when callers are
+announcement=queue-thankyou:If this option is set for a class, then
+sort=random: Sort the files in random order. Other sort options are:
+sort=alpha : Sort the files in alphabetical order.
+mode=custom
+mode=custom: a directory is not required
+directory=/var/lib/asterisk/mohmp3
+application=/usr/bin/mpg123 -q -r 8000 -f 8192 -b 2048 --mono -s
+application=/usr/bin/streamplayer 192.168.100.52 888
+format=ulaw
+application=/site/sw/bin/madplay -Q -o raw:- --mono -R 8000 -a -12
+
+
+###########muted.conf##############
+
+
+
+
+###########ooh323.conf##############
+
+
+port=1720
+gateway=no
+faststart=no
+h245tunneling=no
+mediawaitforconnect=yes
+gatekeeper = DISCOVER
+gatekeeper = a.b.c.d
+logfile=/var/log/asterisk/h323_log
+rtptimeout=60: Terminate call if 60 seconds of no RTP activity
+tos=lowdelay
+amaflags = default
+accountcode=h3230101
+disallow=all :Note order of disallow/allow is important.
+round trip delay request, default = 0,0 (not send)
+roundtrip=x,y
+ip=a.b.c.d : UPDATE with appropriate ip address
+port=1720: UPDATE with appropriate port
+ip=10.0.0.82 : UPDATE with appropriate ip address
+port=1820: UPDATE with appropriate port
+
+
+###########osp.conf##############
+
+
+accelerate=no
+securityfeatures=no
+tokenformat=0
+servicepoint=http://osptestserver.transnexus.com:5045/osp
+source=domain name or [IP address in brackets]
+privatekey=pkey.pem
+localcert=localcert.pem
+cacert=cacert_0.pem
+server (default=20)
+retrydelay: Extra delay between retries (default=0)
+retrylimit: Max number of retries before giving up (default=2)
+timeout:Timeout for response in milliseconds (default=500)
+maxconnections=20
+retrydelay=0
+retrylimit=2
+timeout=500
+authpolicy=1
+defaultprotocol=SIP
+workmode=0
+servicetype=0
+
+
+###########oss.conf##############
+
+
+videodevice = /dev/video0: uses your V4L webcam as video source
+videodevice = X11: X11 grabber. Dragging on the local display moves the origin.
+videocodec = h263: also h261, h263p, h264, mpeg4, ...
+video_size = 352x288: the format WIDTHxHEIGHT is also ok
+video_size = cif: sqcif, qcif, cif, qvga, vga, ...
+bitrate = 60000 : rate told to ffmpeg.
+fps = 5 : frames per second from the source.
+region = <event> <shape> x0 y0 x1 y1 h
+
+
+###########phone.conf##############
+
+
+mode=dialtone
+mode=fxo
+mode=sig
+format=g723.1
+format=g729
+silencesupression=yes
+context=local
+If you want to change default gain value (1.0 =~ 100%) for device, simple
+txgain=100%
+rxgain=1.0
+device => /dev/phone0
+
+
+###########phoneprov.conf##############
+
+
+serveraddr=192.168.1.1 : Override address to send to the phone to use as server address.
+serveriface=eth0 : Same as above, except an ethernet interface.
+serverport=5060: Override port to send to the phone to use as server port.
+default_profile=polycom : The default profile to use if none specified in users.conf
+mime_type => application/octet-stream
+static_file => example/firmware
+static_file => example/default.cfg,text/xml
+${TOUPPER(${MAC})}.cfg => templates/example-mac.cfg
+setvar => DB_CIDNAME=${ODBC_CID_NAME_LOOKUP(${USERNAME})}
+staticdir => configs/ : Sub directory of AST_DATA_DIR/phoneprov that static files reside
+mime_type => text/xml : Default mime type to use if one isn't specified or the
+static_file => bootrom.ld,application/octet-stream : Static files the phone will download
+static_file => bootrom.ver,plain/text: static_file => filename,mime-type
+${MAC}.cfg => 000000000000.cfg : Dynamically generated files.
+${MAC}-phone.cfg => 000000000000-phone.cfg : (relative to AST_DATA_DIR/phoneprov)
+config/${MAC} => polycom.xml : Dynamic Filename => template file
+setvar => CUSTOM_CONFIG=/var/lib/asterisk/phoneprov/configs/custom.cfg: Custom variable
+
+
+###########pjproject.conf##############
+
+
+log_level=default : Initial maximum pjproject logging level to log
+type= : Must be of type startup (default: "")
+asterisk_error =: A comma separated list of pjproject log levels to map to
+asterisk_warning =: A comma separated list of pjproject log levels to map to
+asterisk_notice = : A comma separated list of pjproject log levels to map to
+asterisk_verbose =: A comma separated list of pjproject log levels to map to
+asterisk_debug =: A comma separated list of pjproject log levels to map to
+type= : Must be of type log_mappings (default: "")
+
+
+###########pjsip.conf##############
+
+
+bind=10.1.100.1
+direct_media=no
+
+
+###########pjsip.conf.sample##############
+
+
+outside the range set with "local_net=".
+type=transport
+protocol=udp:udp,tcp,tls,ws,wss
+bind=0.0.0.0
+protocol=udp
+local_net=192.0.2.0/24
+external_media_address=203.0.113.1
+external_signaling_address=203.0.113.1
+bind=
+protocol=tls
+cert_file=/path/mycert.crt
+priv_key_file=/path/mykey.key
+cipher=ADH-AES256-SHA,ADH-AES128-SHA
+method=tlsv1
+authentication. Note that we "outbound_auth=" use for outbound authentication
+instead of "auth=", which is for inbound authentication.
+"contact_user=" sets the SIP contact header's user portion of the SIP URI
+type=registration
+transport=transport-udp
+outbound_auth=mytrunk_auth
+server_uri=sip:sip.example.com
+client_uri=sip:1234567890@sip.example.com
+contact_user=1234567890
+retry_interval=60
+forbidden_retry_interval=600
+expiration=3600
+line=yes
+endpoint=mytrunk
+type=auth
+auth_type=userpass
+password=1234567890
+username=1234567890
+realm=sip.example.com
+"outbound_auth=" to enable authentication when dialing out through this
+"contact=" entries.
+type=endpoint
+context=from-external
+disallow=all
+allow=ulaw
+aors=mytrunk
+force_rport=yes:It's a good idea to read the configuration help for each
+direct_media=no:of these options.
+ice_support=yes
+type=aor
+contact=sip:198.51.100.1:5060
+contact=sip:198.51.100.2:5060
+type=identify
+match=198.51.100.1
+match=198.51.100.2
+auth=7000
+aors=7000
+password=7000
+username=7000
+max_contacts=1
+media_encryption=sdes: if using the TLS enabled transport
+direct_media=no: prevent audio issues.
+context=from-internal
+allow=gsm
+auth=6001
+aors=6001
+transport=transport-tls
+media_encryption=sdes
+transport=transport-udp-ipv6
+transport=transport-udp-nat
+direct_media=no
+aggregate_mwi=yes
+mailboxes=6001@default,7001@default
+mwi_from_user=6001
+device_state_busy_at=1
+allow_subscribe=yes
+sub_min_expiry=30
+password=6001
+username=6001
+contact=sip:6001@192.0.2.1:5060
+auth=6002
+aors=6002
+rtp_symmetric=yes
+force_rport=yes
+rewrite_contact=yes: necessary if endpoint does not know/register public ip:port
+ice_support=yes :This is specific to clients that support NAT traversal
+password=6002
+username=6002
+max_contacts=2
+type=acl
+acl=example_named_acl1
+contact_acl=example_contact_acl1
+deny=0.0.0.0/0.0.0.0
+permit=209.16.236.0/24
+deny=209.16.236.1
+contact_deny=0.0.0.0/0.0.0.0
+contact_permit=209.16.236.0/24
+contact_permit=209.16.236.1
+contact_permit=209.16.236.2,209.16.236.3
+209.16.236.12/32 within the permit= statement.
+contact_permit=209.16.236.0
+permit=209.16.236.0/24, !209.16.236.12/32
+type=resource_list
+list_item=alice
+list_item=bob
+list_item=carol
+event=presence
+options on a single line (e.g. list_item = alice,bob,carol).
+type=phoneprov : must be specified as 'phoneprov'
+endpoint=1000: Required only if automatic setting of
+PROFILE=digium : required
+MAC=deadbeef4dad : required
+SERVER=myserver.example.com: A standard variable
+TIMEZONE=America/Denver: A standard variable
+MYVAR=somevalue: A user confdigured variable
+MYVAR=somevalue: A user configured variable
+MYVAR=someOTHERvalue : A user confdigured variable
+outbound_auth=1000-auth
+callerid=My Name <8005551212>
+username=myname
+password=mysecret
+PROFILE=someprofile: required
+MYVAR=someUSERvalue: A user confdigured variable
+LABEL=1000 : A standard variable
+MAC=deadbeef4dad :added by pp1000
+USERNAME=myname:automatically added by 1000-auth username
+SECRET=mysecret:automatically added by 1000-auth password
+PROFILE=someprofile:added by defaults
+SERVER=myserver.example.com:added by defaults
+SERVER_PORT=5060 :added by defaults
+MYVAR=someUSERvalue:added by defaults but overdidden by user
+CALLERID=8005551212:automatically added by 1000 callerid
+DISPLAY_NAME=My Name :automatically added by 1000 callerid
+TIMEZONE=America/Denver:added by defaults
+TZOFFSET=252100:automatically calculated by res_phoneprov
+DST_ENABLE=1 :automatically calculated by res_phoneprov
+DST_START_MONTH=3:automatically calculated by res_phoneprov
+DST_START_MDAY=9 :automatically calculated by res_phoneprov
+DST_START_HOUR=3 :automatically calculated by res_phoneprov
+DST_END_MONTH=11 :automatically calculated by res_phoneprov
+DST_END_MDAY=2 :automatically calculated by res_phoneprov
+DST_END_HOUR=1 :automatically calculated by res_phoneprov
+ENDPOINT_ID=1000 :automatically added by this module
+AUTH_ID=1000-auth:automatically added by this module
+TRANSPORT_ID=transport-udp-nat :automatically added by this module
+LABEL=1000 :added by user
+100rel=yes : Allow support for RFC3262 provisional ACK tags (default:
+aggregate_mwi=yes:(default: "yes")
+allow= : Media Codec s to allow (default: "")
+allow_overlap=yes : Enable RFC3578 overlap dialing support. (default: "yes")
+aors=: AoR s to be used with the endpoint (default: "")
+auth=: Authentication Object s associated with the endpoint (default: "")
+callerid=: CallerID information for the endpoint (default: "")
+callerid_privacy=allowed_not_screened: Default privacy level (default: "allowed_not_screened")
+callerid_tag=: Internal id_tag for the endpoint (default: "")
+context=default: Dialplan context for inbound sessions (default:
+direct_media_glare_mitigation=none : Mitigation of direct media re INVITE
+direct_media_method=invite : Direct Media method type (default: "invite")
+connected_line_method=invite : Connected line method type (default:
+direct_media=yes : Determines whether media may flow directly between
+disable_direct_media_on_nat=no : Disable direct media session refreshes when
+disallow=: Media Codec s to disallow (default: "")
+dtmf_mode=rfc4733: DTMF mode (default: "rfc4733")
+media_address= : IP address used in SDP for media handling (default: "")
+bind_rtp_to_media_address= : Bind the RTP session to the media_address.
+force_rport=yes: Force use of return port (default: "yes")
+ice_support=no : Enable the ICE mechanism to help traverse NAT (default: "no")
+identify_by=username : A comma-separated list of ways the Endpoint or AoR can be
+redirect_method=user : How redirects received from an endpoint are handled
+mailboxes= : NOTIFY the endpoint when state changes for any of the specified mailboxes.
+voicemail_extension= : The voicemail extension to send in the NOTIFY Message-Account header
+mwi_subscribe_replaces_unsolicited=no
+moh_suggest=default: Default Music On Hold class (default: "default")
+moh_passthrough=yes: Pass Music On Hold through using SIP re-invites with sendonly
+outbound_auth= : Authentication object used for outbound requests (default:
+outbound_proxy=: Proxy through which to send requests, a full SIP URI
+rewrite_contact=no : Allow Contact header to be rewritten with the source
+rtp_symmetric=no : Enforce that RTP must be symmetric (default: "no")
+send_diversion=yes : Send the Diversion header conveying the diversion
+send_pai=no: Send the P Asserted Identity header (default: "no")
+send_rpid=no : Send the Remote Party ID header (default: "no")
+rpid_immediate=no: Send connected line updates on unanswered incoming calls immediately. (default: "no")
+timers_min_se=90 : Minimum session timers expiration period (default:
+timers=yes : Session timers for SIP packets (default: "yes")
+timers_sess_expires=1800 : Maximum session timer expiration period
+transport= : Desired transport configuration (default: "")
+trust_id_inbound=no: Accept identification information received from this
+trust_id_outbound=no : Send private identification details to the endpoint
+type=: Must be of type endpoint (default: "")
+use_ptime=no : Use Endpoint s requested packetisation interval (default:
+use_avpf=no: Determines whether res_pjsip will use and enforce usage of
+media_encryption=no: Determines whether res_pjsip will use and enforce
+media_encryption_optimistic=no : Use encryption if possible but don't fail the call
+g726_non_standard=no : When set to "yes" and an endpoint negotiates g.726
+inband_progress=no : Determines whether chan_pjsip will indicate ringing
+call_group=: The numeric pickup groups for a channel (default: "")
+pickup_group=: The numeric pickup groups that a channel can pickup (default:
+named_call_group=: The named pickup groups for a channel (default: "")
+named_pickup_group=: The named pickup groups that a channel can pickup
+device_state_busy_at=0 : The number of in use channels which will cause busy
+t38_udptl=no : Whether T 38 UDPTL support is enabled or not (default: "no")
+t38_udptl_ec=none: T 38 UDPTL error correction method (default: "none")
+t38_udptl_maxdatagram=0: T 38 UDPTL maximum datagram size (default:
+fax_detect=no: Whether CNG tone detection is enabled (default: "no")
+fax_detect_timeout=30: How many seconds into a call before fax_detect is
+t38_udptl_nat=no : Whether NAT support is enabled on UDPTL sessions
+tone_zone= : Set which country s indications to use for channels created
+language=: Set the default language to use for channels created for this
+one_touch_recording=no : Determines whether one touch recording is allowed for
+record_on_feature=automixmon : The feature to enact when one touch recording
+record_off_feature=automixmon: The feature to enact when one touch recording
+rtp_engine=asterisk: Name of the RTP engine to use for channels created
+allow_transfer=yes : Determines whether SIP REFER transfers are allowed
+sdp_owner=-: String placed as the username portion of an SDP origin o line
+sdp_session=Asterisk : String used for the SDP session s line (default:
+tos_audio=0: DSCP TOS bits for audio streams (default: "0")
+tos_video=0: DSCP TOS bits for video streams (default: "0")
+cos_audio=0: Priority for audio streams (default: "0")
+cos_video=0: Priority for video streams (default: "0")
+allow_subscribe=yes: Determines if endpoint is allowed to initiate
+sub_min_expiry=0 : The minimum allowed expiry time for subscriptions
+from_user= : Username to use in From header for requests to this endpoint
+mwi_from_user= : Username to use in From header for unsolicited MWI NOTIFYs to
+from_domain= : Domain to user in From header for requests to this endpoint
+dtls_verify=no : Verify that the provided peer certificate is valid (default:
+dtls_rekey=0 : Interval at which to renegotiate the TLS session and rekey
+dtls_cert_file=: Path to certificate file to present to peer (default:
+dtls_private_key=: Path to private key for certificate file (default:
+dtls_cipher= : Cipher to use for DTLS negotiation (default: "")
+dtls_ca_file=: Path to certificate authority certificate (default: "")
+dtls_ca_path=: Path to a directory containing certificate authority
+dtls_setup=: Whether we are willing to accept connections connect to the
+dtls_fingerprint= : Hash to use for the fingerprint placed into SDP
+srtp_tag_32=no : Determines whether 32 byte tags should be used instead of 80
+set_var= : Variable set on a channel involving the endpoint. For multiple
+rtp_keepalive= : Interval, in seconds, between comfort noise RTP packets if
+rtp_timeout=: Hang up channel if RTP is not received for the specified
+rtp_timeout_hold= : Hang up channel if RTP is not received for the specified
+contact_user= : On outgoing requests, force the user portion of the Contact
+asymmetric_rtp_codec= : Allow the sending and receiving codec to differ and
+auth_type=userpass : Authentication type (default: "userpass")
+nonce_lifetime=32: Lifetime of a nonce associated with this
+md5_cred=: MD5 Hash used for authentication (default: "")
+password=: PlainText password used for authentication (default: "")
+realm= : SIP realm for endpoint (default: "")
+type=: Must be auth (default: "")
+username=: Username to use for account (default: "")
+type=: Must be of type domain_alias (default: "")
+domain=: Domain to be aliased (default: "")
+async_operations=1 : Number of simultaneous Asynchronous Operations
+bind=: IP Address and optional port to bind to for this transport (default:
+ca_list_file=: File containing a list of certificates to read TLS ONLY
+ca_list_path=: Path to directory containing certificates to read TLS ONLY.
+cert_file= : Certificate file for endpoint TLS ONLY
+cipher=: Preferred cryptography cipher names TLS ONLY (default: "")
+domain=: Domain the transport comes from (default: "")
+external_media_address=: External IP address to use in RTP handling
+external_signaling_address=: External address for SIP signalling (default:
+external_signaling_port=0: External port for SIP signalling (default:
+method=: Method of SSL transport TLS ONLY (default: "")
+local_net= : Network to consider local used for NAT purposes (default: "")
+password=: Password required for transport (default: "")
+priv_key_file= : Private key file TLS ONLY (default: "")
+protocol=udp : Protocol to use for SIP traffic (default: "udp")
+require_client_cert= : Require client certificate TLS ONLY (default: "")
+type=: Must be of type transport (default: "")
+verify_client= : Require verification of client certificate TLS ONLY (default:
+verify_server= : Require verification of server certificate TLS ONLY (default:
+tos=0: Enable TOS for the signalling sent over this transport (default: "0")
+cos=0: Enable COS for the signalling sent over this transport (default: "0")
+websocket_write_timeout=100: Default write timeout to set on websocket
+allow_reload=no: Although transports can now be reloaded, that may not be
+symmetric_transport=no : When a request from a dynamic contact comes in on a
+contact= : Permanent contacts assigned to AoR (default: "")
+default_expiration=3600: Default expiration time in seconds for
+mailboxes= : Allow subscriptions for the specified mailbox(es)
+maximum_expiration=7200: Maximum time to keep an AoR (default: "7200")
+max_contacts=0 : Maximum number of contacts that can bind to an AoR (default:
+minimum_expiration=60: Minimum keep alive time for an AoR (default: "60")
+remove_existing=no : Determines whether new contacts replace existing ones
+type=: Must be of type aor (default: "")
+qualify_frequency=0: Interval at which to qualify an AoR (default: "0")
+qualify_timeout=3.0: Qualify timeout in fractional seconds (default: "3.0")
+authenticate_qualify=no: Authenticates a qualify request if needed
+outbound_proxy=: Proxy through which to send OPTIONS requests, a full SIP URI
+timer_t1=500 : Set transaction timer T1 value milliseconds (default: "500")
+timer_b=32000: Set transaction timer B value milliseconds (default: "32000")
+compact_headers=no : Use the short forms of common SIP header names
+threadpool_initial_size=0: Initial number of threads in the res_pjsip
+threadpool_auto_increment=5: The amount by which the number of threads is
+threadpool_idle_timeout=60 : Number of seconds before an idle thread
+threadpool_max_size=0: Maximum number of threads in the res_pjsip threadpool
+disable_tcp_switch=yes : Disable automatic switching from UDP to TCP transports
+type=: Must be of type system (default: "")
+max_forwards=70: Value used in Max Forwards header for SIP requests
+type=: Must be of type global (default: "")
+user_agent=Asterisk PBX: Allows you to change the user agent string
+default_outbound_endpoint=default_outbound_endpoint: Endpoint to use when
+debug=no : Enable/Disable SIP debug logging.Valid options include yes|no
+keep_alive_interval=20 : The interval (in seconds) at which to send keepalive
+contact_expiration_check_interval=30
+disable_multi_domain=no
+endpoint_identifier_order=ip,username,anonymous
+max_initial_qualify_time=4 : The maximum amount of time (in seconds) from
+regcontext=sipregistrations: If regcontext is specified, Asterisk will dynamically
+default_voicemail_extension=asterisk
+unidentified_request_count=5 : The number of unidentified requests that can be
+unidentified_request_period=5: See above.(default: 5 seconds)
+unidentified_request_prune_interval=30
+default_from_user=asterisk : When Asterisk generates an outgoing SIP request, the
+default_realm=asterisk : When Asterisk generates a challenge, the digest realm
+mwi_tps_queue_high=500 : Taskprocessor high water alert trigger level.
+mwi_tps_queue_low=450: Taskprocessor low water clear alert level.
+mwi_disable_initial_unsolicited=no : Disable sending unsolicited mwi to all endpoints on startup.
+ignore_uri_user_options=no : Enable/Disable ignoring SIP URI user field options.
+acl= : List of IP ACL section names in acl conf (default: "")
+contact_acl= : List of Contact ACL section names in acl conf (default: "")
+contact_deny=: List of Contact header addresses to deny (default: "")
+contact_permit=: List of Contact header addresses to permit (default:
+deny=: List of IP addresses to deny access from (default: "")
+permit=: List of IP addresses to permit access from (default: "")
+type=: Must be of type acl (default: "")
+auth_rejection_permanent=yes : Determines whether failed authentication
+client_uri=: Client SIP URI used when attemping outbound registration
+contact_user=: Contact User to use in request (default: "")
+expiration=3600: Expiration time for registrations in seconds
+max_retries=10 : Maximum number of registration attempts (default: "10")
+outbound_auth= : Authentication object to be used for outbound registrations
+outbound_proxy=: Proxy through which to send registrations, a full SIP URI
+retry_interval=60: Interval in seconds between retries if outbound
+forbidden_retry_interval=0 : Interval used when receiving a 403 Forbidden
+fatal_retry_interval=0 : Interval used when receiving a fatal response.
+server_uri=: SIP URI of the server to register against (default: "")
+transport= : Transport used for outbound authentication (default: "")
+line=: When enabled this option will cause a 'line' parameter to be
+endpoint=: When line support is enabled this configured endpoint name
+type=: Must be of type registration (default: "")
+endpoint=: Name of Endpoint (default: "")
+match= : IP addresses or networks to match against (default: "")
+type=: Must be of type identify (default: "")
+endpoint=: The endpoint from which to gather username, secret, etc. (default: "")
+PROFILE= : The name of a profile configured in phoneprov.conf (default: "")
+MAC= : The mac address for this user (default: "")
+OTHERVAR=: Any other name value pair to be used in templates (default: "")
+type=: Must be of type phoneprov (default: "")
+
+
+###########pjsip_notify.conf##############
+
+
+put empty "Content=>" at the end to have CRLF after last body line
+
+
+###########pjsip_wizard.conf##############
+
+
+type = wizard
+accepts_auth = yes
+accepts_registrations = yes
+has_phoneprov = yes
+transport = ipv4
+has_hint = yes
+hint_exten = 1000
+inbound_auth/username = testname
+inbound_auth/password = test password
+endpoint/allow = ulaw
+endpoint/context = default
+phoneprov/MAC = 001122aa4455
+phoneprov/PROFILE = profile1
+sends_auth = yes
+sends_registrations = yes
+remote_hosts = sip1.myitsp.com:5060,sip2.myitsp.com:5060
+outbound_auth/username = testname
+outbound_auth/password = test password
+sends_auth=: Will create an outbound auth object for the endpoint and
+accepts_auth=: Will create an inbound auth object for the endpoint.
+sends_registrations=: Will create an outbound registration object and an
+accepts_registrations=: Will create an aor with dynamic contacts which will
+remote_hosts= : A comma separated list of remote hosts in the form of
+transport=: The transport to use for the endpoint and registrations
+server_uri_pattern= : The pattern used to construct the registration
+client_uri_pattern= : The pattern used to construct the registration client_uri.
+contact_pattern=: The pattern used to construct the aor contact.
+has_phoneprov=: Will create a phoneprov object.
+has_hint= : Create hint and optionally a default application.
+type=: Must be of type wizard (default: "")
+
+
+###########queuerules.conf##############
+
+
+realtime_rules = yes
+penaltychange => <number of seconds into the call>,<absolute or relative change to QUEUE_MAX_PENALTY>[,absolute or relative change to QUEUE_MIN_PENALTY]
+penaltychange => 30,+3 : 30 seconds into the call increase the QUEUE_MAX_PENALTY by 3, no change to QUEUE_MIN_PENALTY
+penaltychange => 60,10,5 : 60 seconds into the call increase the QUEUE_MAX_PENALTY to 10 and increase the QUEUE_MIN_PENALTY to 5
+penaltychange => 75,,7 : 75 seconds into the call keep the QUEUE_MAX_PENALTY the same and increase the QUEUE_MIN_PENALTY to 7
+
+
+###########queues.conf##############
+
+
+
+autofill=yes: makes sure that when the waiting callers are connecting
+autofill = no
+By setting monitor-type = MixMonitor, when specifying monitor-format
+updatecdr = no
+shared_lastcall=no
+negative_penalty_invalid = no
+log_membername_as_agent = no
+musicclass = default
+announce = queue-markq
+strategy = ringall
+servicelevel = 60
+context = qoutcon
+penaltymemberslimit = 5
+timeout = 15
+retry = 5
+timeoutpriority = app|conf
+weight=0
+wrapuptime=15
+autofill=yes
+autopause=yes
+autopausedelay=60
+autopausebusy=no
+autopauseunavail=no
+maxlen = 0
+setinterfacevar=no
+setqueueentryvar=no
+setqueuevar=no
+membermacro=macro_name[,arg1[,...][,argN]]
+membergosub=gosub_context_name[,arg1[,...][,argN]]
+holdtime to caller (0=off)
+announce-frequency = 90
+min-announce-frequency = 15
+periodic-announce-frequency=60
+random-periodic-announce=no
+relative-periodic-announce=yes
+announce-holdtime = yes|no|once
+announce-position = yes
+announce-to-first-user = no
+announce-position-limit = 5
+announce-round-seconds = 10
+queue-thankyou=
+queue-youarenext = queue-youarenext
+queue-thereare= queue-thereare
+queue-callswaiting = queue-callswaiting
+queue-holdtime = queue-holdtime
+queue-minute = queue-minute
+queue-minutes = queue-minutes
+queue-seconds = queue-seconds
+queue-thankyou = queue-thankyou
+queue-reporthold = queue-reporthold
+periodic-announce = queue-periodic-announce
+periodic-announce = queue-periodic-announce,your-call-is-important,please-wait
+Set(MONITOR_FILENAME=foo)
+Otherwise it will use MONITOR_FILENAME=${UNIQUEID}
+monitor-format = gsm|wav|wav49
+monitor-type = MixMonitor
+Set(MONITOR_OPTIONS=av(<x>)V(<x>)W(<x>))
+Set(MONITOR_EXEC=mv /var/spool/asterisk/monitor/^{MONITOR_FILENAME} /tmp/^{MONITOR_FILENAME})
+Set(MONITOR_EXEC=mv /var/spool/asterisk/monitor/^{MIXMONITOR_FILENAME} /tmp/^{MIXMONITOR_FILENAME})
+joinempty = paused,inuse,invalid
+leavewhenempty = inuse,ringing
+reportholdtime = no
+ringinuse = no
+memberdelay = 0
+timeoutrestart = no
+defaultrule = myrule
+syntax: member => interface,[,penalty][,membername][,state_interface][,ringinuse]
+member => DAHDI/1
+member => DAHDI/2,10
+member => DAHDI/3,10,Bob Johnson
+member => Local/1001@agents,0,May Flowers,Agent:1001
+member => Local/1002@agents,0,John Doe,Agent:1002
+member => Local/1000@default,0,John Smith,SIP/1000
+member => Local/2000@default,0,Lorem Ipsum,SIP/2000,no
+
+
+###########res_config_mysql.conf##############
+
+
+sippeers => mysql,readhost.asterisk/writehost.asterisk,sippeers
+dbhost = 127.0.0.1
+dbname = asterisk
+dbuser = myuser
+dbpass = mypass
+dbport = 3306
+dbsock = /tmp/mysql.sock
+dbcharset = latin1
+requirements=warn : or createclose or createchar
+
+
+###########res_config_sqlite.conf##############
+
+
+
+
+###########res_config_sqlite3.conf##############
+
+
+dbfile => /var/lib/asterisk/realtime.sqlite3
+debug=yes
+requirements=warn
+you will need to set batch=0 as the transactions will cause the database
+batch=1000
+
+
+###########res_corosync.conf##############
+
+
+publish_event = mwi
+subscribe_event = mwi
+publish_event = device_state
+subscribe_event = device_state
+
+
+###########res_curl.conf##############
+
+
+proxy=myproxy.example.com
+proxyuserpwd=asterisk:asteriskrocks
+
+
+###########res_fax.conf##############
+
+
+maxrate=14400
+minrate=4800
+modems=v17,v27,v29
+ecm=yes
+
+
+###########res_ldap.conf##############
+
+
+sippeers = ldap,"dc=myDomain,dc=myDomainExt",sip
+extensions = ldap,"dc=myDomain,dc=myDomainExt",extensions
+sip.conf = ldap,"dc=myDomain,dc=myDomainExt",config
+host=192.168.1.1: LDAP host
+port=389
+url=ldap://ldap3.mydomain.com:3890
+protocol=3: Version of the LDAP protocol to use: default is 3.
+basedn=dc=example,dc=tld: Base DN
+user=cn=asterisk,dc=example,dc=tld: Bind DN
+pass=MyPassword : Bind password
+Attributes mapping (asterisk variable name = ldap attribute name)
+name = cn : We use the "cn" as the default value for name on the line above
+md5secret = AstAccountRealmedPassword : Must be an MD5 hash. Field value can start with
+
+
+###########res_odbc.conf##############
+
+
+INFORMIXSERVER => my_special_database
+INFORMIXDIR => /opt/informix
+ORACLE_HOME => /home/oracle
+username => myuser
+password => mypass
+sanitysql => select 1
+max_connections => 20
+forcecommit => no
+isolation => repeatable_read
+backslash_is_escape => yes
+connect_timeout => 10
+negative_connection_cache => 300
+forcecommit => no: Default to committing uncommitted transactions?
+isolation => read_committed: Isolation level: supported levels are:
+
+
+###########res_parking.conf##############
+
+
+parkeddynamic = yes: Enables dynamically created parkinglots. (default is no)
+parkext => 700: What extension to dial to park. (optional: if
+parkext_exclusive=yes: Specify that the parkext created for this parking lot
+parkpos => 701-720: What range of parking spaces to use - must be numeric
+context => parkedcalls: Which context parked calls and the default park
+parkinghints = no: Add hints priorities automatically for parkpos
+parkingtime => 45: Number of seconds a call can be parked before returning
+comebacktoorigin = yes : Setting this option configures the behavior of call parking when the
+comebackdialtime = 30: When a parked call times out, this is the number of seconds to dial the device that
+comebackcontext = parkedcallstimeout
+courtesytone = beep: Sound file to play to when someone picks up a parked call
+parkedplay = caller: Who to play courtesytone to when picking up a parked call.
+parkedcalltransfers = caller : Enables or disables DTMF based transfers when picking up a parked call.
+parkedcallreparking = caller : Enables or disables DTMF based parking when picking up a parked call.
+parkedcallhangup = caller: Enables or disables DTMF based hangups when picking up a parked call.
+findslot => next : Sets the method for selecting parking spaces when a call is parked
+parkedmusicclass = default : This is the MOH class to use for the parked channel
+context => edvina_park
+parkpos => 800-850
+findslot => next
+comebacktoorigin = no
+comebackdialtime = 90
+comebackcontext = edvinapark-timeout
+parkedmusicclass = edvina
+
+
+###########res_pgsql.conf##############
+
+
+dbappname=asterisk: Postgres application_name support (optional). Whitespace not allowed.
+dbsock=/tmp
+
+
+###########res_pktccops.conf##############
+
+
+gateinfoperiod => 60 : default 60s
+gatetimeout = 150 : default 150
+t1 => 250 : default 250s
+t7 => 200 : default 200s
+t8 => 300 : default 300s
+keepalive => 60 : default 60s
+host => 192.168.0.24
+pool => 10.0.1.0 10.0.1.255
+pool => 10.0.3.0 10.0.3.255
+pool => 10.0.7.0 10.0.8.255
+pool => 10.0.10.0 10.0.11.255
+
+
+###########res_snmp.conf##############
+
+
+subagent = yes
+enabled = yes
+
+
+###########res_stun_monitor.conf##############
+
+
+stunaddr = mystunserver.com: Address of the STUN server to query.
+stunrefresh = 30 : Number of seconds between STUN refreshes.
+
+
+###########resolver_unbound.conf##############
+
+
+hosts = /etc/hosts: Full path to a hosts file which contains a mapping of
+resolv = /etc/resolv.conf : Full path to a resolv.conf which contains the nameservers
+nameserver = 127.0.0.1: An explicit nameserver to use for queries. If this option
+debug = 99: The debug level to run the unbound resolver at. While
+ta_file = /etc/asterisk/dnssec_keys : Full path to a trusted anchors key file. These keys are
+
+
+###########rtp.conf##############
+
+
+Defaults are rtpstart=5000 and rtpend=31000
+rtpchecksums=no
+dtmftimeout=3000
+rtcpinterval = 5000 : Milliseconds between rtcp reports
+strictrtp=yes
+into play while using strictrtp=yes. Consider changing this value
+probation=8
+icesupport=true
+e.g. stundaddr=mystun.server.com:3478
+stunaddr=
+e.g. turnaddr=myturn.server.com:34780
+turnaddr=
+turnusername=
+turnpassword=
+e.g. ice_blacklist = 192.168.1.0/255.255.255.0
+ice_blacklist = 10.32.77.0/255.255.255.0
+ice_blacklist =
+<local address> => <advertised address>
+192.168.1.10 => 1.2.3.4
+
+
+###########say.conf##############
+
+
+mode=old: method for playing numbers and dates
+datetime::. => date:AdBY 'digits/at' IMp:${SAY}
+_date:Y:. => num:${SAY:0:4}: year, 19xx
+_date:[Bbh]:. => digits/mon-$[${SAY:4:2}-1]: month name, 0..11
+_date:[Aa]:. => digits/day-${SAY:16:1}: day of week
+_date:[de]:. => num:${SAY:6:2}: day of month
+_date:[H]:. => digits/oh, num:${SAY:8:2}: hour (oh one, oh two, ..., oh nine, ten, eleven, ..., twenty-three)
+_date:[I]:. => num:$[${SAY:8:2} % 12]: hour 0-12
+_date:[M]:. => num:${SAY:10:2}: minute
+_date:[pP]:. => digits/p-m: am pm
+_date:[S]:. => num:${SAY:13:2}: seconds
+_date:[Ii]:. => num:$[${SAY:8:2} % 12]: hour 0-12
+_date:[k]:. => num:${SAY:8:2}: hour (one, two. three, ...,twenty three
+_date:[m]:. => num:${SAY:4:2}: month number
+_date:[Q]:. => date:dby :incompleat: "today", "yesterday" or ABdY
+_date:[q]:. => date:dby :incompleat: "" (for today), "yesterday", weekday, or ABdY
+_date:[R]:. => date:HM${SAY}: 24 hour time, including minute
+_date:[T]:. => date:HMS${SAY}: 24 hour, minure, seconds
+
+
+###########sip.conf##############
+
+
+regseconds = 0
+subscribemwi = 0
+register => impi_temporaire:i2m6Wbw6DWfp8QMV@sipgw9.option-service.com
+context=from-internal-sip: Default context for incoming calls. Defaults to 'default'
+directmedia=yes
+directmediadeny=0.0.0.0/0: Use directmediapermit and directmediadeny to restrict
+allowoverlap=no : Disable overlap dialing support. (Default is yes)
+allowoverlap=yes : Enable RFC3578 overlap dialing support.
+udpbindaddr=0.0.0.0:5061 : IP address to bind UDP listen socket to (0.0.0.0 binds to all)
+tcpenable=no: Enable server for incoming TCP connections (default is no)
+tcpbindaddr=0.0.0.0 : IP address for TCP server to bind to (0.0.0.0 binds to all interfaces)
+transport=udp : Set the default transports.The order determines the primary default transport.
+srvlookup=yes : Enable DNS SRV lookups on outbound calls
+tos_sip=cs3: Sets TOS for SIP packets.
+tos_audio=ef : Sets TOS for RTP audio packets.
+tos_video=af41 : Sets TOS for RTP video packets.
+tos_text=af41: Sets TOS for RTP text packets.
+cos_sip=3: Sets 802.1p priority for SIP packets.
+cos_audio=5: Sets 802.1p priority for RTP audio packets.
+cos_video=4: Sets 802.1p priority for RTP video packets.
+cos_text=3 : Sets 802.1p priority for RTP text packets.
+disallow=all : First disallow all codecs
+allow=alaw : Allow codecs in order of preference
+language=fr: Default language setting for all users/peers
+tonezone=se: Default tonezone for all users/peers
+dtmfmode = rfc2833 : Set default dtmfmode for sending DTMF. Default: rfc2833
+videosupport=yes : Turn on support for SIP video. You need to turn this
+textsupport=no : Support for ITU-T T.140 realtime text.
+
+
+###########sip.conf.sample##############
+
+
+amaflags = default
+type=user
+type=peer
+context=sip-internal: Default context for incoming calls. Defaults to 'default'
+directmedia=yes
+directmediadeny=0.0.0.0/0: Use directmediapermit and directmediadeny to restrict
+allowguest=no: Allow or reject guest calls (default is yes)
+match_auth_username=yes: if available, match user entry using the
+allowoverlap=no : Disable overlap dialing support. (Default is yes)
+allowoverlap=yes : Enable RFC3578 overlap dialing support.
+allowoverlap=dtmf: Enable overlap dialing support using DTMF delivery
+allowtransfer=no : Disable all transfers (unless enabled in peers or users)
+realm=mydomain.tld : Realm for digest authentication
+domainsasrealm=no: Use domains list as realms
+recordonfeature=automixmon: Default feature to use when receiving 'Record: on' header
+recordofffeature=automixmon: Default feature to use when receiving 'Record: off' header
+bindaddr=192.0.2.1 : Listen on a specific IPv4 address.
+bindaddr=2001:db8::1 : Listen on a specific IPv6 address.
+bindaddr=0.0.0.0 : Listen on the IPv4 wildcard.
+bindaddr=:: : Listen on the IPv4 and IPv6 wildcards.
+bindaddr=:: : will show only a single IPv6 socket in netstat.
+IPv4 example: bindaddr=0.0.0.0:5062
+IPv6 example: bindaddr=[::]:5062
+udpbindaddr=0.0.0.0:5061 : IP address to bind UDP listen socket to (0.0.0.0 binds to all)
+#udpbindaddr=10.1.100.1:5061 : IP address to bind UDP listen socket to (0.0.0.0 binds to all)
+rtpbindaddr=172.16.42.1: IP address to bind RTP listen sock to (default is disabled). When
+disallowed_methods = UPDATE
+tcpenable=no: Enable server for incoming TCP connections (default is no)
+tcpbindaddr=0.0.0.0 : IP address for TCP server to bind to (0.0.0.0 binds to all interfaces)
+tlsenable=no : Enable server for incoming TLS (secure) connections (default is no)
+tlsbindaddr=0.0.0.0: IP address for TLS server to bind to (0.0.0.0) binds to all interfaces)
+tcpauthtimeout = 30: tcpauthtimeout specifies the maximum number
+tcpauthlimit = 100 : tcpauthlimit specifies the maximum number of
+websocket_enabled = true : Set to false to prevent chan_sip from listening to websockets.This
+websocket_write_timeout = 100: Default write timeout to set on websocket transports.
+transport=udp : Set the default transports.The order determines the primary default transport.
+srvlookup=yes : Enable DNS SRV lookups on outbound calls
+pedantic=yes : Enable checking of tags in headers,
+tos_sip=cs3: Sets TOS for SIP packets.
+tos_audio=ef : Sets TOS for RTP audio packets.
+tos_video=af41 : Sets TOS for RTP video packets.
+tos_text=af41: Sets TOS for RTP text packets.
+cos_sip=3: Sets 802.1p priority for SIP packets.
+cos_audio=5: Sets 802.1p priority for RTP audio packets.
+cos_video=4: Sets 802.1p priority for RTP video packets.
+cos_text=3 : Sets 802.1p priority for RTP text packets.
+maxexpiry=3600 : Maximum allowed time of incoming registrations (seconds)
+minexpiry=60 : Minimum length of registrations (default 60)
+defaultexpiry=120: Default length of incoming/outgoing registration
+submaxexpiry=3600: Maximum allowed time of incoming subscriptions (seconds), default: maxexpiry
+subminexpiry=60: Minimum length of subscriptions, default: minexpiry
+mwiexpiry=3600 : Expiry time for outgoing MWI subscriptions
+maxforwards=70: Setting for the SIP Max-Forwards: header (loop prevention)
+qualifyfreq=60 : Qualification: How often to check for the host to be up in seconds
+qualifygap=100: Number of milliseconds between each group of peers being qualified
+qualifypeers=1: Number of peers in a group to be qualified at the same time
+keepalive=60 : Interval at which keepalive packets should be sent to a peer
+notifymimetype=text/plain: Allow overriding of mime type in MWI NOTIFY
+buggymwi=no: Cisco SIP firmware doesn't support the MWI RFC
+mwi_from=asterisk: When sending MWI NOTIFY requests, use this setting in
+vmexten=voicemail: dialplan extension to reach mailbox sets the
+preferred_codec_only=yes : Respond to a SIP invite with the single most preferred codec
+disallow=all : First disallow all codecs
+allow=ulaw : Allow codecs in order of preference
+allow=ilbc : see https://wiki.asterisk.org/wiki/display/AST/RTP+Packetization
+autoframing=yes: Set packetization based on the remote endpoint's (ptime
+mohinterpret=default
+mohsuggest=default
+parkinglot=plaza : Sets the default parking lot for call parking
+language=fr: Default language setting for all users/peers
+tonezone=se: Default tonezone for all users/peers
+relaxdtmf=yes: Relax dtmf handling
+trustrpid = no : If Remote-Party-ID should be trusted
+sendrpid = yes : If Remote-Party-ID should be sent (defaults to no)
+sendrpid = rpid: Use the "Remote-Party-ID" header
+sendrpid = pai : Use the "P-Asserted-Identity" header
+rpid_update = no : In certain cases, the only method by which a connected line
+trust_id_outbound = no : Controls whether or not we trust this peer with private identity
+prematuremedia=no: Some ISDN links send empty media frames before 
+progressinband=no: If we should generate in-band ringing. Always
+useragent=Asterisk PBX : Allows you to change the user agent string
+promiscredir = no: If yes, allows 302 or REDIR to non-local SIP address
+usereqphone = no : If yes, ":user=phone" is added to uri that contains
+dtmfmode = rfc2833 : Set default dtmfmode for sending DTMF. Default: rfc2833
+compactheaders = yes : send compact sip headers.
+videosupport=yes : Turn on support for SIP video. You need to turn this
+textsupport=no : Support for ITU-T T.140 realtime text.
+maxcallbitrate=384 : Maximum bitrate for video calls (default 384 kb/s)
+authfailureevents=no : generate manager "peerstatus" events when peer can't
+alwaysauthreject = yes : When an incoming INVITE or REGISTER is to be rejected,
+auth_options_requests = yes: Enabling this option will authenticate OPTIONS requests just like
+accept_outofcall_message = no: Disable this option to reject all MESSAGE requests outside of a
+outofcall_message_context = messages : Context all out of dialog msgs are sent to. When this
+auth_message_requests = yes: Enabling this option will authenticate MESSAGE requests.
+g726nonstandard = yes: If the peer negotiates G726-32 audio, use AAL2 packing
+outboundproxy=proxy.provider.domain: send outbound signaling to this proxy, not directly to the devices
+outboundproxy=proxy.provider.domain:8080 : send outbound signaling to this proxy, not directly to the devices
+outboundproxy=proxy.provider.domain,force: Send ALL outbound signalling to proxy, ignoring route: headers
+outboundproxy=tls://proxy.provider.domain: same as '=proxy.provider.domain' except we try to connect with tls
+outboundproxy=192.0.2.1: IPv4 address literal (default port is 5060)
+outboundproxy=2001:db8::1: IPv6 address literal (default port is 5060)
+outboundproxy=192.168.0.2.1:5062 : IPv4 address literal with explicit port
+outboundproxy=[2001:db8::1]:5062 : IPv6 address literal with explicit port
+supportpath=yes: This activates parsing and handling of Path header as defined in RFC 3327. This enables
+rtsavepath=yes : If using dynamic realtime, store the path headers
+matchexternaddrlocally = yes : Only substitute the externaddr or externhost setting if it matches
+dynamic_exclude_static = yes : Disallow all dynamic hosts from registering
+contactdeny=0.0.0.0/0.0.0.0 : Use contactpermit and contactdeny to
+contactpermit=172.16.0.0/255.255.0.0: restrict at what IPs your users may
+contactacl=named_acl_example: Use named ACLs defined in acl.conf
+rtp_engine=asterisk: RTP engine to use when communicating with the device
+us and have a "regexten=" configuration item.
+regcontext=sipregistrations
+regextenonqualify=yes: Default "no"
+legacy_useroption_parsing=yes: Default "no": If you have this option enabled and there are semicolons
+send_diversion=no: Default "yes" : Asterisk normally sends Diversion headers with certain SIP
+shrinkcallerid=yes : on by default
+use_q850_reason = no : Default "no"
+refer_addheaders=yes: on by default
+autocreatepeer=no : Allow any UAC not explicitly defined to register
+tlscertfile=</path/to/certificate.pem> : Certificate chain (*.pem format only) to use for TLS connections
+tlsprivatekey=</path/to/private.pem> : Private key file (*.pem format only) for TLS connections.
+tlscafile=</path/to/certificate>
+tlscapath=</path/to/ca/dir>
+tlsdontverifyserver=[yes|no]
+tlscipher=<SSL cipher string>
+tlsclientmethod=tlsv1 : values include tlsv1, sslv3, sslv2.
+Asterisk and the device if you have qualify=yes for the device.
+t1min=100: Minimum roundtrip time for messages to monitored hosts
+timert1=500: Default T1 timer
+timerb=32000 : Call setup timer. If a provisional response is not received
+rtptimeout=60: Terminate call if 60 seconds of no RTP or RTCP activity
+rtpholdtimeout=300 : Terminate call if 300 seconds of no RTP or RTCP activity
+rtpkeepalive=<secs>: Send keepalives in the RTP stream to keep NAT open
+session-timers=originate
+session-expires=600
+session-minse=90
+session-refresher=uac
+sipdebug = yes : Turn on SIP debugging by default, from
+recordhistory=yes: Record SIP history by default
+dumphistory=yes: Dump SIP history at end of SIP dialogue
+allowsubscribe=no: Disable support for subscriptions. (Default is yes)
+subscribecontext = default : Set a specific context for SUBSCRIBE requests
+notifyringing = no : Control when subscriptions get notified of ringing state.
+notifyhold = yes : Notify subscriptions on HOLD state (default: no)
+notifycid = yes: Control whether caller ID information is sent along with
+callcounter = yes: Enable call counters on devices. This can be set per
+t38pt_udptl = yes: Enables T.38 with FEC error correction.
+t38pt_udptl = yes,fec: Enables T.38 with FEC error correction.
+t38pt_udptl = yes,redundancy : Enables T.38 with redundancy error correction.
+t38pt_udptl = yes,none : Enables T.38 with no error correction.
+This can be done by appending 'maxdatagram=<value>' to the t38pt_udptl configuration option,
+t38pt_udptl = yes,fec,maxdatagram=400 : Enables T.38 with FEC error correction and overrides
+faxdetect = yes: Default 'no', 'yes' enables both CNG and T.38 detection
+faxdetect = cng: Enables only CNG detection
+faxdetect = t38: Enables only T.38 detection
+register => [peer?][transport://]user[@domain][:secret[:authuser]]@host[:port][/extension][~expiry]
+register => fromuser:secret:username@host/callbackextension
+register= line doesn't mean that we will match the incoming call 
+register => 1234:password@mysipprovider.com
+register => 2345:password@sip_proxy/1234
+(instead of type=friend) if you have calls in both directions
+register => 3456@mydomain:5082::@mysipprovider.com
+register => tls://username:xxxxxx@sip-tls-proxy.example.org
+registertimeout=20 : retry registration calls every 20 seconds (default)
+registerattempts=10: Number of registration attempts before we give up
+register_retry_403=yes : Treat 403 responses to registrations as if they were
+mwi => user[:secret[:authuser]]@host[:port]/mailbox
+mwi => 1234:password@mysipprovider.com/1234
+mwi => 1234:password@myportprovider.com:6969/1234
+mwi => 1234:password:authuser@myauthprovider.com/1234
+mwi => 1234:password:authuser@myauthportprovider.com:6969/1234
+mailbox=1234@SIP_Remote
+localnet=192.168.0.0/255.255.0.0 : RFC 1918 addresses
+localnet=10.0.0.0/255.0.0.0: Also RFC1918
+localnet=172.16.0.0/12 : Another RFC1918 with CIDR notation
+localnet=169.254.0.0/255.255.0.0 : Zero conf local network
+externaddr = hostname[:port] specifies a static address[:port] 
+externaddr = 12.34.56.78: use this address.
+externaddr = 12.34.56.78:9900 : use this address and port.
+externaddr = mynat.my.org:12600 : Public address of my nat box.
+externtcpport = 9900 : The externally mapped tcp port, when Asterisk is behind a static NAT or PAT. 
+externtlsport = 12600: The externally mapped tls port, when Asterisk is behind a static NAT or PAT.
+externhost = hostname[:port]" is similar to "externaddr" 
+externhost=foo.dyndns.net : refreshed periodically
+externrefresh=180 : change the refresh interval
+nat = no: Do no special NAT handling other than RFC3581
+nat = force_rport : Pretend there was an rport parameter even if there wasn't
+nat = comedia : Send media to the port Asterisk received it from regardless
+nat = auto_force_rport: Set the force_rport option if Asterisk detects NAT (default)
+nat = auto_comedia: Set the comedia option if Asterisk detects NAT
+nat=force_rport,comedia. If any of the comma-separated options is 'no',Asterisk will ignore any other settings and set nat=no.
+GENERAL SECTION. Specifically, if nat=force_rport in one section and nat=no in the
+media_address = 172.16.42.1
+subscribe_network_change_event = yes : on by default
+icesupport = yes
+directmedia=yes: Asterisk by default tries to redirect the
+directmedia=nonat: An additional option is to allow media path redirection
+directmedia=update : Yet a third option... use UPDATE for media path redirection,
+directmedia=outgoing : When sending directmedia reinvites, do not send an immediate
+directrtpsetup=yes : Enable the new experimental direct RTP setup. This sets up
+directmediadeny=0.0.0.0/0: Use directmediapermit and directmediadeny to restrict 
+directmediapermit=172.16.0.0/16: which peers should be able to pass directmedia to each other
+directmediaacl=acl_example : Use named ACLs defined in acl.conf
+ignoresdpversion=yes : By default, Asterisk will honor the session version
+sdpsession=Asterisk PBX: Allows you to change the SDP session name string, (s=)
+sdpowner=root: Allows you to change the username field in the SDP owner string, (o=)
+encryption=no: Whether to offer SRTP encrypted media (and only SRTP encrypted media)
+encryption_taglen=80 : Set the auth tag length offered in the INVITE either 32/80 default 80
+avpf=yes : Enable inter-operability with media streams using the AVPF RTP profile.
+force_avp=yes: Force 'RTP/AVP', 'RTP/AVPF', 'RTP/SAVP', and 'RTP/SAVPF' to be used for
+rtcp_mux=yes: Enable support for RFC 5761 RTCP multiplexing which is required for
+rtcachefriends=yes : Cache realtime friends by adding them to the internal list
+rtsavesysname=yes: Save systemname in realtime database at registration
+rtupdate=yes : Send registry updates to database using realtime? (yes|no)
+rtautoclear=yes: Auto-Expire friends created on the fly on the same schedule
+ignoreregexpire=yes: Enabling this setting has two functions:
+domain=<domain>[,<context>]
+domain=myasterisk.dom
+domain=customer.com,customer-context
+autodomain=yes
+allowexternaldomains=no
+domain=mydomain.tld,mydomain-incoming
+domain=1.2.3.4 : Add IP address as local domain
+allowexternaldomains=no: Disable INVITE and REFER to non-local domains
+autodomain=yes : Turn this on to have Asterisk add local host
+fromdomain=mydomain.tld : When making outbound SIP INVITEs to
+snom_aoc_enabled = yes: : This options turns on and off support for sending AOC-D and
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbforce = no: Forces the use of a jitterbuffer on the receive side of a SIP
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a SIP
+jbtargetextra = 40: This option only affects the jb when 'jbimpl = adaptive' is set.
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+auth = <user>:<secret>@<realm>
+auth = <user>#<md5secret>@<realm>
+auth=mark:topsecret@digium.com
+dtlsenable = yes : Enable or disable DTLS-SRTP support
+dtlsverify = yes : Verify that provided peer certificate and fingerprint are valid
+dtlsrekey = 60 : Interval at which to renegotiate the TLS session and rekey the SRTP session
+dtlscertfile = file: Path to certificate file to present
+dtlsprivatekey = file: Path to private key for certificate file
+dtlscipher = <SSL cipher string> : Cipher to use for TLS negotiation
+dtlscafile = file: Path to certificate authority certificate
+dtlscapath = path: Path to a directory containing certificate authority certificates
+dtlssetup = actpass: Whether we are willing to accept connections, connect to the other party, or both.
+dtlsfingerprint = sha-1: The hash to use for the fingerprint in SDP (valid options are sha-1 and sha-256)
+type=peer
+context=from-fwd
+host=fwd.pulver.com
+type=peer: we only want to call out, not be called
+remotesecret=guessit : Our password to their service
+defaultuser=yourusername : Authentication user for outbound proxies
+fromuser=yourusername: Many SIP providers require this!
+fromdomain=provider.sip.domain
+host=box.provider.com
+transport=udp,tcp: This sets the default transport type to udp for outgoing, and will
+usereqphone=yes: This provider requires ":user=phone" on URI
+callcounter=yes: Enable call counter
+busylevel=2: Signal busy at 2 or more calls
+outboundproxy=proxy.provider.domain: send outbound signaling to this proxy, not directly to the peer
+port=80: The port number we want to connect to on the remote side
+host=sip.provider1.com
+fromuser=4015552299: how your provider knows you
+remotesecret=youwillneverguessit : The password we use to authenticate to them
+secret=gissadetdu: The password they use to contact us
+callbackextension=123: Register with this server and require calls coming back to this extension
+transport=udp,tcp: This sets the transport type to udp for outgoing, and will
+unsolicited_mailbox=4015552299 : If the remote SIP server sends an unsolicited MWI NOTIFY message the new/old
+secret = peekaboo
+secret = not_very_secret
+secret = not_very_secret_either
+type=friend
+context=from-sip: Where to start in the dialplan when this phone calls
+recordonfeature=dynamicfeature1 : Feature to use when INFO with Record: on is received.
+recordofffeature=dynamicfeature2 : Feature to use when INFO with Record: off is received.
+callerid=John Doe <1234>: Full caller ID, to override the phones config
+description=Courtesy Phone: Description of the peer. Shown when doing 'sip show peers'.
+host=192.168.0.23 : we have a static but private IP address
+directmedia=yes : allow RTP voice traffic to bypass Asterisk
+dtmfmode=info : either RFC2833 or INFO for the BudgeTone
+call-limit=1: permit only 1 outgoing call and 1 incoming call at a time
+mailbox=1234@default: mailbox 1234 in voicemail context "default"
+disallow=all: need to disallow=all before we can use allow=
+allow=ulaw: Note: In user sections the order of codecs
+allow=alaw
+allow=g723.1: Asterisk only supports g723.1 pass-thru!
+allow=g729: Pass-thru only unless g729 license obtained
+callingpres=allowed_passed_screen : Set caller ID presentation
+Turn off silence suppression in X-Lite ("Transmit Silence"=YES)!
+Note that Xlite sends NAT keep-alive packets, so qualify=yes is not needed
+regexten=1234 : When they register, create extension 1234
+callerid="Jane Smith" <5678>
+host=dynamic: This device needs to register
+directmedia=no: Typically set to NO if behind NAT
+disallow=all
+allow=gsm : GSM consumes far less bandwidth than ulaw
+allow=ulaw
+mailbox=1234@default,1233@default : Subscribe to status of multiple mailboxes
+type=friend : Friends place calls and receive calls
+context=from-sip: Context for incoming calls from this user
+secret=blah
+subscribecontext=localextensions : Only allow SUBSCRIBE for local extensions
+language=de : Use German prompts for this user
+host=dynamic: This peer register with us
+dtmfmode=inband : Choices are inband, rfc2833, or info
+defaultip=192.168.0.59: IP used until peer registers
+mailbox=1234@context,2345@context : Mailbox(-es) for message waiting indicator
+subscribemwi=yes: Only send notifications if this phone
+vmexten=voicemail : dialplan extension to reach mailbox
+allow=ulaw: dtmfmode=inband only works with ulaw or alaw!
+secret=blahpoly
+dtmfmode=rfc2833: Choices are inband, rfc2833, or info
+defaultuser=polly : Username to use in INVITE until peer registers
+defaultip=192.168.40.123
+progressinband=no : Polycom phones don't work properly with "never"
+host=dynamic
+insecure=port : Allow matching of peer by IP address without
+insecure=invite : Do not require authentication of incoming INVITEs
+insecure=port,invite: (both)
+qualify=1000: Consider it down if it's 1 second to reply
+qualifyfreq=60: Qualification: How often to check for the
+callgroup=1,3-4 : We are in caller groups 1,3,4
+pickupgroup=1,3-5 : We can do call pick-p for call group 1,3,4,5
+namedcallgroup=engineering,sales,netgroup,protgroup : We are in named call groups engineering,sales,netgroup,protgroup
+namedpickupgroup=sales: We can do call pick-p for named call group sales
+defaultip=192.168.0.60: IP address to use if peer has not registered
+deny=0.0.0.0/0.0.0.0: ACL: Control access to this account based on IP address
+permit=192.168.0.60/255.255.255.0
+permit=192.168.0.60/24: we can also use CIDR notation for subnet masks
+permit=2001:db8::/32: IPv6 ACLs can be specified if desired. IPv6 ACLs
+acl=named_acl_example : Use named ACLs defined in acl.conf
+qualify=200 : Qualify peer is no more than 200ms away
+host=dynamic: This device registers with us
+directmedia=no: Asterisk by default tries to redirect the
+defaultip=192.168.0.4 : IP address to use until registration
+defaultuser=goran : Username to use when calling this device before registration
+setvar=CUSTID=5678: Channel variable to be set for all calls from or to this device
+setvar=ATTENDED_TRANSFER_COMPLETE_SOUND=beep : This channel variable will
+secret=digium
+rfc2833compensate=yes: Compensate for pre-1.4 DTMF transmission from another Asterisk machine.
+t38pt_usertpsource=yes : Use the source IP address of RTP as the destination IP address for UDPTL packets
+
+
+###########sip_notify.conf##############
+
+
+put empty "Content=>" at the end to have CRLF after last body line
+
+
+###########skinny.conf##############
+
+
+bindaddr=0.0.0.0: Address to bind to
+bindport=2000: Port to bind to, default tcp/2000
+dateformat=M-D-Y: M,D,Y in any order (6 chars max)
+authtimeout = 30 : authtimeout specifies the maximum number of seconds a
+authlimit = 50 : authlimit specifies the maximum number of
+vmexten=8500: Systemwide voicemailmain pilot number
+regexten=
+regcontext=skinnyregistrations
+allow=all: see https://wiki.asterisk.org/wiki/display/AST/RTP+Packetization
+disallow=
+immeddialkey=#
+tos=cs3: Sets TOS for signaling packets.
+tos_audio=ef: Sets TOS for RTP audio packets.
+tos_video=af41: Sets TOS for RTP video packets.
+cos=3: Sets 802.1p priority for signaling packets.
+cos_audio=5: Sets 802.1p priority for RTP audio packets.
+cos_video=4: Sets 802.1p priority for RTP video packets.
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbforce = no: Forces the use of a jitterbuffer on the receive side of a skinny
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+earlyrtp=1: whether audio signalling should be provided by asterisk
+transfer=1: whether the device is allowed to transfer. default=yes
+context=default : context to use for this line.
+callfwdtimeout=20000: ms before cfwd_noans occurs (default 20 secs)
+setvar= : allows for the setting of chanvars.
+nat=yes
+callerid="Customer Support" <810-234-1212>
+mailbox=100
+vmexten=8500: Device level voicemailmain pilot number
+regexten=100
+context=inbound
+linelabel="Support Line": Displays next to the line
+callerid="John Chambers" <408-526-4000>
+context=did
+regexten=110
+linelabel="John"
+mailbox=110
+callerid="George W. Bush" <202-456-1414>
+setvar=CUSTID=5678: Channel variable to be set for all calls from this device
+setvar=ATTENDED_TRANSFER_COMPLETE_SOUND=beep : This channel variable will
+mailbox=500
+callwaiting=yes
+transfer=yes
+threewaycalling=yes
+context=default
+mohinterpret=default: This option specifies a default music on hold class to
+mohsuggest=default: This option specifies which music on hold class to suggest to the peer channel
+device="SEPxxxxxxxxxxxx : id of the device. Must be set.
+version=P002G204 : firmware version to be loaded. If this version is different
+device=SEP00D0BA847E6B
+version=P002G204: Thanks critch
+directmedia=yes: Allow media to go directly between two RTP endpoints.
+line=120: Dial(Skinny/120@florian)
+serviceurl=Directory,http://host/file.xml
+device=SEP0007EB463101: Official identifier
+version=P002F202: Firmware version identifier
+host=192.168.1.144
+permit=192.168.0/24: Optional, used for authentication
+line=500
+device=SEP0007EB463121
+line=100
+line=110
+speeddial => 111,Jack Smith : Adds a speeddial button to a device.
+speeddial => 112@hints,Bob Peterson : When a context is specified, the speeddial watches a dialplan hint.
+addon => 7914
+
+
+###########sla.conf##############
+
+
+attemptcallerid=no : Attempt CallerID handling.The default value for this
+type=trunk : This line is what marks this entry as a trunk.
+device=DAHDI/3 : Map this trunk declaration to a specific device.
+autocontext=line1: This supports automatic generation of the dialplan entries
+ringtimeout=30 : Set how long to allow this trunk to ring on an inbound call before hanging
+barge=no : If this option is set to "no", then no station will be
+hold=private : This option configure hold permissions for this trunk.
+type=trunk
+device=DAHDI/4
+autocontext=line2
+device=DAHDI/3
+autocontext=line3
+device=Local/disa@line4_outbound : A Local channel in combination with the Disa
+autocontext=line4
+type=station : This line indicates that this entry is a station.
+device=SIP/station1: Each station must be mapped to a device.
+autocontext=sla_stations : This supports automatic generation of the dialplan entries if
+ringtimeout=10 : Set a timeout for how long to allow the station to ring for an
+ringdelay=10 : Set a time for how long to wait before beginning to ring this station
+hold=private : This option configure hold permissions for this station.Note
+trunk=line1: Individually list all of the trunks that will appear on this station.This
+trunk=line2
+trunk=line3,ringdelay=5: A ring delay for the station can also be specified for a specific trunk.
+trunk=line4,ringtimeout=5: A ring timeout for the station can also be specified for a specific trunk.
+type=station
+autocontext=sla_stations
+trunk=line1
+trunk=line3
+trunk=line4
+device=SIP/station2
+device=SIP/station3
+device=SIP/station4
+device=SIP/station5
+
+
+###########smdi.conf##############
+
+
+twostopbits = no
+charsize = 7
+paritybit = even
+baudrate = 1200
+msdstrip = 0
+msgexpirytime = 30000
+smdiport => /dev/ttyS0
+pollinginterval=10
+<SMDI mailbox ID>=<Asterisk Mailbox Name>[@Asterisk Voicemail Context]
+smdiport=/dev/ttyS0
+2565551234=1234@vmcontext1
+2565555678=5678@vmcontext2
+smdiport=/dev/ttyS1
+2565559999=9999
+
+
+###########sorcery.conf##############
+
+
+object type [/options] = wizard name, wizard configuration data
+bob = memory
+joe = config,joe.conf
+mailboxes=astdb,mwi_external
+endpoint=realtime,ps_endpoints
+auth=realtime,ps_auths
+aor=realtime,ps_aors
+domain_alias=realtime,ps_domain_aliases
+identify=realtime,ps_endpoint_id_ips
+
+
+###########ss7.timers##############
+
+
+mtp3_timer.q707_t1 = 4000
+mtp3_timer.q707_t2 = 30000
+mtp3_timer.t19 = 67000
+mtp3_timer.t21 = 63000
+mtp3_timer.t22 = 300000
+mtp3_timer.t23 = 300000
+isup_timer.t2 = 180000: ITU only
+isup_timer.t5 = 300000: for ITU
+isup_timer.t5 = 60000: for ANSI
+isup_timer.t10 = 4000: ITU only
+isup_timer.t13 = 300000: for ITU
+isup_timer.t13 = 60000: for ANSI
+isup_timer.t15 = 300000: for ITU
+isup_timer.t15 = 60000: for ANSI
+isup_timer.t17 = 300000: for ITU
+isup_timer.t17 = 60000: for ANSI
+isup_timer.t19 = 300000: for ITU
+isup_timer.t19 = 60000: for ANSI
+isup_timer.t21 = 300000: for ITU
+isup_timer.t21 = 60000: for ANSI
+isup_timer.t23 = 300000: for ITU
+isup_timer.t23 = 60000: for ANSI
+isup_timer.t35 = 15000: ITU only
+
+
+###########stasis.conf##############
+
+
+initial_size = 5: Initial size of the threadpool.
+idle_timeout_sec = 20 : Number of seconds a thread should be idle before
+max_size = 50 : Maximum number of threads in the Stasis threadpool.
+decline=stasis_app_recording_snapshot_type
+decline=stasis_app_playback_snapshot_type
+decline=stasis_test_message_type
+decline=confbridge_start_type
+decline=confbridge_end_type
+decline=confbridge_join_type
+decline=confbridge_leave_type
+decline=confbridge_start_record_type
+decline=confbridge_stop_record_type
+decline=confbridge_mute_type
+decline=confbridge_unmute_type
+decline=confbridge_talking_type
+decline=cel_generic_type
+decline=ast_bridge_snapshot_type
+decline=ast_bridge_merge_message_type
+decline=ast_channel_entered_bridge_type
+decline=ast_channel_left_bridge_type
+decline=ast_blind_transfer_type
+decline=ast_attended_transfer_type
+decline=ast_endpoint_snapshot_type
+decline=ast_endpoint_state_type
+decline=ast_device_state_message_type
+decline=ast_test_suite_message_type
+decline=ast_mwi_state_type
+decline=ast_mwi_vm_app_type
+decline=ast_format_register_type
+decline=ast_format_unregister_type
+decline=ast_manager_get_generic_type
+decline=ast_parked_call_type
+decline=ast_channel_snapshot_type
+decline=ast_channel_dial_type
+decline=ast_channel_varset_type
+decline=ast_channel_hangup_request_type
+decline=ast_channel_dtmf_begin_type
+decline=ast_channel_dtmf_end_type
+decline=ast_channel_hold_type
+decline=ast_channel_unhold_type
+decline=ast_channel_chanspy_start_type
+decline=ast_channel_chanspy_stop_type
+decline=ast_channel_fax_type
+decline=ast_channel_hangup_handler_type
+decline=ast_channel_moh_start_type
+decline=ast_channel_moh_stop_type
+decline=ast_channel_monitor_start_type
+decline=ast_channel_monitor_stop_type
+decline=ast_channel_agent_login_type
+decline=ast_channel_agent_logoff_type
+decline=ast_channel_talking_start
+decline=ast_channel_talking_stop
+decline=ast_security_event_type
+decline=ast_named_acl_change_type
+decline=ast_local_bridge_type
+decline=ast_local_optimization_begin_type
+decline=ast_local_optimization_end_type
+decline=stasis_subscription_change_type
+decline=ast_multi_user_event_type
+decline=stasis_cache_clear_type
+decline=stasis_cache_update_type
+decline=ast_network_change_type
+decline=ast_system_registry_type
+decline=ast_cc_available_type
+decline=ast_cc_offertimerstart_type
+decline=ast_cc_requested_type
+decline=ast_cc_requestacknowledged_type
+decline=ast_cc_callerstopmonitoring_type
+decline=ast_cc_callerstartmonitoring_type
+decline=ast_cc_callerrecalling_type
+decline=ast_cc_recallcomplete_type
+decline=ast_cc_failure_type
+decline=ast_cc_monitorfailed_type
+decline=ast_presence_state_message_type
+decline=ast_rtp_rtcp_sent_type
+decline=ast_rtp_rtcp_received_type
+decline=ast_call_pickup_type
+decline=aoc_s_type
+decline=aoc_d_type
+decline=aoc_e_type
+decline=dahdichannel_type
+decline=mcid_type
+decline=session_timeout_type
+decline=cdr_read_message_type
+decline=cdr_write_message_type
+decline=cdr_prop_write_message_type
+decline=corosync_ping_message_type
+decline=agi_exec_start_type
+decline=agi_exec_end_type
+decline=agi_async_start_type
+decline=agi_async_exec_type
+decline=agi_async_end_type
+decline=queue_caller_join_type
+decline=queue_caller_leave_type
+decline=queue_caller_abandon_type
+decline=queue_member_status_type
+decline=queue_member_added_type
+decline=queue_member_removed_type
+decline=queue_member_pause_type
+decline=queue_member_penalty_type
+decline=queue_member_ringinuse_type
+decline=queue_agent_called_type
+decline=queue_agent_connect_type
+decline=queue_agent_complete_type
+decline=queue_agent_dump_type
+decline=queue_agent_ringnoanswer_type
+decline=meetme_join_type
+decline=meetme_leave_type
+decline=meetme_end_type
+decline=meetme_mute_type
+decline=meetme_talking_type
+decline=meetme_talk_request_type
+decline=appcdr_message_type
+decline=forkcdr_message_type
+decline=cdr_sync_message_type
+
+
+###########statsd.conf##############
+
+
+enabled = yes: When set to yes, statsd support is enabled
+server = 127.0.0.1: server[:port] of statsd server to use.
+prefix =: Prefix to prepend to all metrics
+add_newline = no: Append a newline to every event. This is
+
+
+###########telcordia-1.adsi##############
+
+
+
+
+###########test_sorcery.conf##############
+
+
+
+
+###########udptl.conf##############
+
+
+udptlchecksums=no
+
+
+###########unistim.conf##############
+
+
+port=5000: UDP port
+tos=cs3: Sets TOS for signaling packets.
+tos_audio=ef : Sets TOS for RTP audio packets.
+cos=3: Sets 802.1p priority for signaling packets.
+cos_audio=5: Sets 802.1p priority for RTP audio packets.
+debug=yes: Enable debug (default no)
+keepalive=120 : in seconds, default = 120
+public_ip=: if asterisk is behind a nat, specify your public IP
+autoprovisioning=no : Allow undeclared phones to register an extension. See README for important
+mohsuggest=default
+jbenable = yes: Enables the use of a jitterbuffer on the receiving side of a
+jbforce = no: Forces the use of a jitterbuffer on the receive side of a SIP
+jbmaxsize = 200 : Max length of the jitterbuffer in milliseconds.
+jbresyncthreshold = 1000: Jump in the frame timestamps over which the jitterbuffer is
+jbimpl = fixed: Jitterbuffer implementation, used on the receiving side of a SIP
+jblog = no: Enables jitterbuffer frame logging. Defaults to "no".
+device=000ae4012345 : mac address of the phone
+rtp_port=10000: RTP port used by the phone, default = 10000. RTCP = rtp_port+1
+rtp_method=0: If you don't have sound, you can try 1, 2 or 3, default = 0
+status_method=0 : If you don't see status text, try 1, default = 0
+titledefault=Asterisk : default = "TimeZone (your time zone)". 12 characters max
+height=3: default = 3, the number of display lines the device can show
+maintext0="you can insert": default = "Welcome", 24 characters max
+maintext1="a custom text" : default = the name of the device, 24 characters max
+maintext2="(main page)" : default = the public IP of the phone, 24 characters max
+dateformat=0: 0 (default) = 31Jan, 1 = Jan31, 2 = month/day, 3 = day/month
+timeformat=1: 0 = 0:00am : 1 (default) = 0h00, 2 = 0:00
+contrast=8: define the contrast of the LCD. From 0 to 15. Default = 8
+country=us: country (ccTLD) for dial tone frequency. See README, default = us
+language=ru : language used for audio files and onscreen messages translate
+ringvolume=2: ring volume : 0,1,2,3, can be overrided by Dial(), default = 2
+ringstyle=3 : ring style : 0 to 7, can be overrided by Dial(), default = 3
+cwvolume=2: ring volume : 0,1,2,3, default = 0
+cwstyle=3 : ring style : 0 to 7, default = 2
+sharpdial=1 : dial number by pressing #, default = 0
+dtmf_duration=0 : DTMF playback duration (in milliseconds) 0..150 (0 = off (default), 150 = maximum)
+interdigit_timer=4000 : timer for automatic dial after several digits of number entered (in ms, 0 is off)
+callhistory=1 : 0 = disable, 1 = enable call history, default = 1
+callerid="Customer Support" <555-234-5678>
+context=default : context, default="default"
+mailbox=1234: Specify the mailbox number. Used by Message Waiting Indication
+linelabel="Support" : Softkey label for the next line=> entry, 9 char max.
+extension=none: Add an extension into the dialplan. Only valid in context specified previously.
+line => 100 : Any number of lines can be defined in any order with bookmarks
+line => 200 : After line defined it placed in next available slot
+bookmark=Hans C.@123: Use a softkey to dial 123. Name : 9 char max
+bookmark=Mailbox@011@54 : 54 shows a mailbox icon. See #define FAV_ICON_ for other values (32 to 63)
+bookmark=Test@*@USTM/violet : Display an icon if violet is connected (dynamic), only for unistim device
+bookmark=4@Pager@54321@51 : Display a pager icon and dial 54321 when softkey 4 is pressed
+device=006038abcdef
+line => 102
+
+
+###########users.conf##############
+
+
+
+
+###########users.conf.sample##############
+
+
+hash323 = yes
+managerread = system,call,log,verbose,command,agent,user,config
+managerwrite = system,call,log,verbose,command,agent,user,config
+macaddress = 112233445566
+autoprov = yes
+LINEKEYS = 1
+linenumber = 1
+cid_number = 6000
+nat = no
+fullname = Joe User
+description = Courtesy Phone In Lobby: Used to provide a description of the
+email = joe@foo.bar
+secret = 1234
+dahdichan = 1
+hasvoicemail = yes
+vmsecret = 1234
+hassip = yes
+hasiax = no
+hash323 = no
+hasmanager = no
+callwaiting = no
+context = international
+alternateexts = 7057,3249
+
+
+###########voicemail.conf##############
+
+
+
+
+###########voicemail.conf.sample##############
+
+
+format=g723sf|wav49|wav
+serveremail=asterisk@linux-support.net
+maxmsg=100
+maxsecs=180
+minsecs=3
+maxgreet=60
+moveheard=yes
+forward_urgent_auto=no
+userscontext=default
+externnotify=/usr/bin/myapp
+smdienable=yes
+smdiport=/dev/ttyS0
+externpass=/usr/bin/myapp
+externpassnotify=/usr/bin/myapp
+externpasscheck=/usr/local/bin/voicemailpwcheck.py
+directoryintro=dir-intro
+charset=UTF-8
+adsifdn=0000000F
+adsisec=9BDBF7AC
+adsiver=1
+pbxskip=yes
+fromstring=The Asterisk PBX
+usedirectory=yes
+odbcstorage=asterisk
+odbctable=voicemessages
+emailsubject=[PBX]: New message ${VM_MSGNUM} in mailbox ${VM_MAILBOX}
+pagerfromstring=The Asterisk PBX
+pagersubject=New VM
+emaildateformat=%A, %d %B %Y at %H:%M:%S
+pagerdateformat=%T %D
+mailcmd=/usr/sbin/sendmail -t
+pollmailboxes=no: If mailboxes are changed anywhere outside of app_voicemail,
+pollfreq=30 : If the "pollmailboxes" option is enabled, this option
+imapgreetings=no: If using IMAP storage, specify whether voicemail greetings
+greetingsfolder=INBOX : If imapgreetings=yes, then specify which folder to store
+imapparentfolder=INBOX: Some IMAP server implementations store folders under INBOX
+imapserver=localhost: The address of the IMAP server
+imapport=143: The port of the IMAP server
+imapflags=ssl : Optional flags to pass to the IMAP server in the IMAP mailbox
+imapfolder=INBOX: The folder in which to store voicemail messages on the IMAP
+authuser=user : The master user to use for connecting to the IMAP server, if
+authpassword=password : The password for the authuser, if used
+imapopentimeout=60: The TCP open timeout (in seconds)
+imapclosetimeout=60 : The TCP close timeout (in seconds)
+imapreadtimeout=60: The TCP read timeout (in seconds)
+imapwritetimeout=60 : The TCP write timeout (in seconds)
+Each mailbox is listed in the form <mailbox>=<password>,<name>,<email>,<pager_email>,<options>
+tz=central : Timezone from zonemessages below. Irrelevant if envelope=no.
+locale=de_DE.UTF-8: set the locale for generation of the date/time strings (make 
+attach=yes : Attach the voicemail to the notification email *NOT* the pager email
+attachfmt=wav49: Which format to attach to the email.Normally this is the
+saycid=yes : Say the caller id information before the message. If not described,
+cidinternalcontexts=intern: Internal Context for Name Playback instead of
+sayduration=no : Turn on/off the duration information before the message. [ON by default]
+saydurationm=2: Specify the minimum duration to say. Default is 2 minutes
+dialout=fromvm : Context to dial out from [option 4 from mailbox's advanced menu].
+sendvoicemail=yes : Allow the user to compose and send a voicemail while inside
+searchcontexts=yes: Current default behavior is to search only the default context
+callback=fromvm : Context to call back from
+exitcontext=fromvm: Context to go to on user exit such as * or 0
+review=yes : Allow sender to review/rerecord their message before saving it [OFF by default
+operator=yes: Allow sender to hit 0 before/after/during leaving a voicemail to
+envelope=no : Turn on/off envelope playback before message playback. [ON by default]
+delete=yes: After notification, the voicemail is deleted from the server. [per-mailbox only]
+alias=Bongo : Use this additional string for comparison while looking
+volgain=0.0: Emails bearing the voicemail may arrive in a volume too
+nextaftercmd=yes: Skips to the next message after hitting 7 or 9 to delete/save current message.
+forcename=yes: Forces a new user to record their name.A new user is
+forcegreetings=no: This is the same as forcename, except for recording
+hidefromdir=yes: Hide this mailbox from the directory produced by app_directory
+tempgreetwarn=yes: Remind the user that their temporary greeting is set
+passwordlocation=spooldir
+messagewrap=no: Enable next/last message to wrap around to
+minpassword=0 : Enforce minimum password length
+vm-login=custom_sound
+vm-newuser=custom_sound
+vm-password=custom_sound
+vm-newpassword=custom_sound
+vm-passchanged=custom_sound
+vm-reenterpassword=custom_sound
+vm-mismatch=custom_sound
+vm-invalid-password=custom_sound
+vm-pls-try-again=custom_sound
+vm-prepend-timeout=custom_sound
+listen-control-forward-key=#: Customize the key that fast-forwards message playback
+listen-control-reverse-key=*: Customize the key that rewinds message playback
+listen-control-pause-key=0: Customize the key that pauses/unpauses message playback
+listen-control-restart-key=2: Customize the key that restarts message playback
+listen-control-stop-key=13456789: Customize the keys that interrupt message playback, probably all keys not set above
+backupdeleted=100
+tps_queue_high=500: Taskprocessor high water alert trigger level.
+tps_queue_low=450: Taskprocessor low water clear alert level.
+hears here. Set the user into one of these zones with the tz= attribute
+4200 => 9855,Mark Spencer,markster@linux-support.net,mypager@digium.com,attach=no|serveremail=myaddy@digium.com|fromstring=MySystem|tz=central|maxmsg=10
+4300 => 3456,Ben Rigas,ben@american-computer.net
+4310 => -5432,Sales,sales@marko.net
+4069 => 6522,Matt Brooks,matt@marko.net,,|tz=central|attach=yes|saycid=yes|dialout=fromvm|callback=fromvm|review=yes|operator=yes|envelope=yes|moveheard=yes|sayduration=yes|saydurationm=1
+4073 => 1099,Bianca Paige,bianca@biancapaige.com,,delete=1|emailsubject=You have a new voicemail.|emailbody=Click on the attachment to listen.|rip=2010-06-04
+4110 => 3443,Rob Flynn,rflynn@blueridge.net
+4235 => 1234,Jim Holmes,jim@astricon.ips,,Tz=european
+directoryintro=dir-company2
+111 => 7383,Pete,pete@acme-widgets.com,,tz=central
+112 => 6262,Nancy,nancy@acme-widgets.com
+imapuser=username: The IMAP username of the mailbox to access
+imappassword=password: The IMAP password of the user
+imapvmshareid=xxxx : A shared mailbox ID to use for the IMAP mailbox
+4324 => 7764,Ellis Redding,red@buxton.us,,imapuser=eredding|imappassword=g3tbusy|imapfolder=notinbox
+4325 => 2392,Andrew Dufresne,andy@dufresne.info,,imapuser=adufresne|imappassword=rockh@mmer
+
+
+###########vpb.conf##############
+
+
+1 = use Asterisk functions
+0 = use VPB functions
+0= no suppression threshold
+2048 = -18dB
+4096 = -24dB
+ecsuppthres=0
+any value = use Asterisk functions
+commented out = use VPB functions
+ast-dtmf=1
+ast-dtmf-det=1
+yes = only break the connection for '#' and '*'
+no= break the connection for any DTMF
+off= no not use echo cancellation
+on = use echo cancellation
+on = collect caller ID between 1st/2nd rings using VPB routines
+off= do not use caller ID
+bell = bell202 as used in US, using Asterisk's caller ID routines
+v23= v23 as used in the UK, using Asterisk's caller ID routines
+txgain=0.0
+rxgain=0.0
+txhwgain=0.0
+rxhwgain=0.0
+bal1=0xf8
+bal2=0x1a
+bal3=0x0c
+bal1=0xf0
+bal2=0x5d
+bal3=0x79
+bal2=0x6e
+bal3=0x75
+fxo = this is an FXO port
+immediate = this is an FXS port, with no dialtone or dialling
+dialtone= this is an FXS port, providing dialtone and dialling
+board=0
+mode=dialtone
+context=from-handset
+group=1
+channel=0
+channel=1
+channel=2
+channel=3
+channel=4
+channel=5
+channel=6
+channel=7
+mode=fxo
+context=from-pstn
+group=2
+channel=8
+channel=9
+channel=10
+channel=11
+board=1
+
+
+###########xmpp.conf##############
+
+
+debug=yes: Enable debugging (disabled by default).
+autoprune=yes: Auto remove users from buddy list. Depending on your
+autoregister=yes: Auto register users from buddy list.
+collection_nodes=yes: Enable support for XEP-0248 for use with
+pubsub_autocreate=yes: Whether or not the PubSub server supports/is using
+auth_policy=accept: Auto accept users' subscription requests (default).
+type=client: Client or Component connection
+serverhost=astjab.org: Route to server for example, talk.google.com
+pubsub_node=pubsub.astjab.org: Node to use for publishing events via PubSub
+username=asterisk@astjab.org/asterisk: Username with optional resource.
+secret=blah: Password
+priority=1: Resource priority
+port=5222: Port to use defaults to 5222
+usetls=yes: Use tls or not
+usesasl=yes: Use sasl or not
+buddy=mogorman@astjab.org: Manual addition of buddy to list.
+distribute_events=yes: Whether or not to distribute events using
+status=available: One of: chat, available, away, xaway, or dnd
+statusmessage="I am available": Have custom status message for Asterisk
+timeout=5: Timeout (in seconds) on the message stack, defaults to 5.
+sendtodialplan=yes: Send incoming messages into the dialplan.Off by default.
+context=messages: Dialplan context to send incoming messages to.If not set,
+forceoldssl=no : Force the use of old-style SSL.
+keepalive=
