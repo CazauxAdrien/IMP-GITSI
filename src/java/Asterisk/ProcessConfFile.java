@@ -45,12 +45,12 @@ public class ProcessConfFile implements ManagerEventListener {
             TimeoutException, InterruptedException {
 
         Map<String, Object> response;
-
         managerConnection.login();
 
         response = managerConnection.sendAction(new GetConfigAction(file)).getAttributes();
 
         TreeMap<String, Object> treeresponse = new TreeMap<String, Object>(response);
+        System.out.println(treeresponse);
         Set treekeys = treeresponse.keySet();
         List<Pair<String, String>> lines = new LinkedList<Pair<String, String>>();
         List<Pair<String, String>> categories = new LinkedList<Pair<String, String>>();
@@ -98,7 +98,7 @@ public class ProcessConfFile implements ManagerEventListener {
         }
         
         managerConnection.logoff();
-
+        System.out.println(result);
         return result;
     }
 
@@ -126,7 +126,6 @@ public class ProcessConfFile implements ManagerEventListener {
         String oldvalue;
         String oldVal = "";
         String oldVar = "";
-
         for (int i = 0, k = 0; i < newConf.size() && k < originalConf.size(); i++, k++) {
             v=v+1;
             newkey = newConf.get(i).getKey();
@@ -173,7 +172,7 @@ public class ProcessConfFile implements ManagerEventListener {
                     manager.UpdateConfig("DelCat", filename, true, oldCategory, oldCategory, null, null);
                 } else {
                     
-                    manager.UpdateConfig("Delete", filename, true, oldCategory, oldVar, oldVal, null);
+                    manager.UpdateConfig("Delete", filename, true, currentCategory, oldVar, oldVal, null);
                 }
             }
             l = l + 1;

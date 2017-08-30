@@ -34,6 +34,7 @@ public class ModifConf extends HttpServlet {
 
     public static final String VUE = "/ModifConf.jsp";
     List<Pair<String, String>> listLines = new LinkedList<Pair<String, String>>();
+    List<Pair<String, String>> listLinesBis = new LinkedList<Pair<String, String>>();
     List<String> listConf;
     String parameter;
 
@@ -41,15 +42,40 @@ public class ModifConf extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         
-      
-        
+        List<Pair<String, String>> list = new LinkedList<Pair<String, String>>();
+        ProcessConfFile conf= new ProcessConfFile();
+        try {
+            list = conf.GetConfFile("admin.conf");
+            
+        } catch (AuthenticationFailedException ex) {
+            Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TimeoutException ex) {
+            Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         if (session.getAttribute("admin") != null) {
             if (((String) session.getAttribute("admin")).equals("true")) {
                 listConf = new LinkedList(Arrays.asList(PropertyManagement.reader("AdminConfList").split(",")));
                 request.setAttribute("admin", "true");
-            } else {
-                listConf = new LinkedList(Arrays.asList(PropertyManagement.reader("NonAdminList").split(",")));
+            }
+            else if (((String) session.getAttribute("sousAdmin"))!=null) {
+                for(int r=0;r<list.size();r++){
+                    if(list.get(r).getValue().contains("SousAdminList")){
+                        listConf= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+                    }
+                }
+                request.setAttribute("admin", "false");
+                request.setAttribute("sousAdmin", "true");
+            }
+            else {
+                
+                for(int r=0;r<list.size();r++){
+                    if(list.get(r).getValue().contains("NonAdminList")){
+                        listConf= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+                    }
+                }
                 request.setAttribute("admin", "false");
             }
 
@@ -70,8 +96,30 @@ public class ModifConf extends HttpServlet {
             } catch (TimeoutException e) {
             } catch (InterruptedException e) {
             }
-
-            request.setAttribute("listLines", listLines);
+            if(parameter!=null  && !session.getAttribute("admin").equals("true") && session.getAttribute("sousAdmin")==null){
+                String login =(String) session.getAttribute("id");
+                boolean l=false;
+                for(int i=0;i<listLines.size();i++){
+                    if(listLines.get(i).getKey().contains("category") && listLines.get(i).getValue().equals(login)){
+                        l=true;
+                    }
+                    
+                    if(listLines.get(i).getKey().contains("category") && !listLines.get(i).getValue().equals(login)){
+                        l=false;
+                    }
+                    if(listLines.get(i).getKey().contains("category") && listLines.get(i).getValue().equals("general")){
+                        l=true;
+                    }
+                    if(l){
+                        listLinesBis.add(listLines.get(i));
+                    }
+                }
+                request.setAttribute("listLines", listLinesBis);
+            }
+            else{
+                request.setAttribute("listLines", listLines);
+            }
+            
             request.setAttribute("listConf", listConf);
             this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
         }
@@ -91,7 +139,7 @@ public class ModifConf extends HttpServlet {
 
         if (parameter != null) {
             int res = Integer.parseInt((String) request.getParameter("value"));
-            int k = 1;
+            int k = 0;
             String num = Integer.toString(k);
 
             for (int i = 0; i < res; i++) {
@@ -105,31 +153,28 @@ public class ModifConf extends HttpServlet {
                 }
                 
             }
-
+            
             int v = 0;
-            while (v < 0) {
+            while (v < 500) {
+                if (request.getParameter("key" +v) != null) {
+                 
+                  
+                  Pair<String, String> paire = new Pair<String, String>((String) request.getParameter("key" +v), ((String) request.getParameter("value0" +v))+"="+((String) request.getParameter("value1" +v)));
                 
-                if (request.getParameter("key" + num) == null) {
-                    v = v + 1;
-                }
-                else{
-                  Pair<String, String> paire = new Pair<String, String>((String) request.getParameter("key" + num), ((String) request.getParameter("value0" + num))+"="+((String) request.getParameter("value1" + num)));
                   listRes.add(paire);
-                  k += 1; 
-                  num = Integer.toString(k);
                 }
-                
+                v=v+1;
                 
             }
             int z=0;
             List<String> unsorted = new LinkedList<String>();
-            while(z<50){
+            while(z<60){
                 
                 if((String) request.getParameter("ANewCat"+z)!=null){
                     Pair<String, String> paire = new Pair<String,String>((String) request.getParameter("ANewCat"+z),(String) request.getParameter("NewCat"+z));
                     listRes.add(paire);
                     int e=0;
-                    while(e<200){
+                    while(e<400){
                         if((String) request.getParameter("xteNewCat"+z+"|"+e)!=null){
                             Pair<String, String> pai =new Pair<String,String>((String) request.getParameter("xteNewCat"+z+"|"+e),(String) request.getParameter("xtNewCat"+z+"|"+e)+"="+(String) request.getParameter("xt1NewCat"+z+"|"+e));  
                             listRes.add(pai);
@@ -173,7 +218,10 @@ public class ModifConf extends HttpServlet {
             } else if (!((String) session.getAttribute("admin")).equals("true" ) && newConf!=null){
                 PropertyManagement.writer("NonAdminList", PropertyManagement.reader("NonAdminList") + "," + newConf);
             }
-
+            dispatcher = request.getRequestDispatcher("/ModifConf.jsp");
+            request.setAttribute("admin", ((String) session.getAttribute("admin")));
+            request.setAttribute("listLines", listLines);
+            request.setAttribute("listConf", listConf);
             dispatcher.forward(request, response);
         }
 

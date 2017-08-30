@@ -13,6 +13,7 @@ import org.asteriskjava.manager.ManagerConnection;
 import org.asteriskjava.manager.ManagerConnectionFactory;
 import org.asteriskjava.manager.ManagerEventListener;
 import org.asteriskjava.manager.TimeoutException;
+import org.asteriskjava.manager.action.DbDelAction;
 import org.asteriskjava.manager.action.DbGetAction;
 import org.asteriskjava.manager.action.DbPutAction;
 import org.asteriskjava.manager.event.DbGetResponseEvent;
@@ -68,6 +69,21 @@ public class BDD implements ManagerEventListener {
         return a;
     }
 
+    public boolean DelUser(String login, String pwd) throws IllegalStateException, IOException, AuthenticationFailedException, TimeoutException {
+
+        boolean a = false;
+        managerConnection.addEventListener(this);
+        managerConnection.login();
+        String response = managerConnection.sendAction(new DbDelAction("User", login)).getResponse();
+        
+        if (response.contains("Succes")) {
+            a = true;
+        }
+
+        managerConnection.logoff();
+        return a;
+    }
+    
     @Override
     public void onManagerEvent(ManagerEvent event) {
         // TODO Auto-generated method stub

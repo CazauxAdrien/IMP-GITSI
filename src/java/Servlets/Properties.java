@@ -6,6 +6,7 @@
 package Servlets;
 
 import Asterisk.BDD;
+import Asterisk.ProcessConfFile;
 import Asterisk.UpdateConf;
 import static Servlets.Connexion.VUE;
 import Gestion.PropertyManagement;
@@ -35,12 +36,38 @@ public class Properties extends HttpServlet{
    List<String> listConfAdmin;
    List<String> listConfUsers;
    List<String> listConfExt;
+   List<String> listConfssAdmin;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+    List<Pair<String, String>> list = new LinkedList<Pair<String, String>>();
+    ProcessConfFile conf= new ProcessConfFile();
+    try {
+        list = conf.GetConfFile("admin.conf");
+
+    } catch (AuthenticationFailedException ex) {
+        Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (TimeoutException ex) {
+        Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (InterruptedException ex) {
+        Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+    }    
         
     listConfAdmin = new LinkedList(Arrays.asList(PropertyManagement.reader("AdminConfList").split(",")));
-    listConfUsers = new LinkedList(Arrays.asList(PropertyManagement.reader("NonAdminList").split(",")));
-    listConfExt= new LinkedList(Arrays.asList(PropertyManagement.reader("ExtList").split(",")));
+    for(int r=0;r<list.size();r++){
+        if(list.get(r).getValue().contains("NonAdminList")){
+            listConfUsers= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+        }
+    }
+    for(int r=0;r<list.size();r++){
+        if(list.get(r).getValue().contains("ExtList")){
+            listConfExt= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+        }
+    }
+    for(int r=0;r<list.size();r++){
+        if(list.get(r).getValue().contains("SousAdminList")){
+            listConfssAdmin= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+        }
+    }
         
         request.setAttribute("id",PropertyManagement.reader("id"));
         request.setAttribute("pwd",PropertyManagement.reader("pwd"));
@@ -49,6 +76,7 @@ public class Properties extends HttpServlet{
         request.setAttribute("listConfAdmin",listConfAdmin);
         request.setAttribute("listConfUsers",listConfUsers);
         request.setAttribute("listConfExt",listConfExt);
+        request.setAttribute("listConfssAdmin",listConfssAdmin);
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
@@ -63,7 +91,7 @@ public class Properties extends HttpServlet{
         UpdateConf manager = new UpdateConf();
         String listConfRes="";
         String listConfExtRes="";
-        
+        String listConfNonAd="";
         
         for(int i =0;i<listConfUsers.size();i++){
             
@@ -80,39 +108,53 @@ public class Properties extends HttpServlet{
                 
             }
         }
+        for(int i =0;i<listConfssAdmin.size();i++){
+            
+            if(((String) request.getParameter("ssAdm"+i))!=null){
+                listConfNonAd=listConfNonAd+((String) request.getParameter("ssAdm"+i))+",";  
+                
+            }
+        }
         
         int k=1;
-        String num=Integer.toString(k);
         int v=0;
-        while(v<30){
+        while(v<100){
             
-            System.out.println((String) request.getParameter("Added"+k));
-            if(request.getParameter("Added"+k)==null){
+            if(request.getParameter("Addeddynamic"+k)==null){
                 v=v+1;
             }
             else{
-                listConfRes=listConfRes+((String) request.getParameter("Added"+k))+",";
+                listConfRes=listConfRes+((String) request.getParameter("Addeddynamic"+k))+",";
                 
             }
             k=k+1;
-            num=Integer.toString(k);
         }
         
         int a=1;
-        String nume=Integer.toString(a);
         int z=0;
-        while(z<30){
+        while(z<100){
             
-            System.out.println((String) request.getParameter("AddedExt"+a));
-            if(request.getParameter("Added"+a)==null){
+            if(request.getParameter("Addedext"+a)==null){
                 z=z+1;
             }
             else{
-                listConfExtRes=listConfExtRes+((String) request.getParameter("AddedExt"+a))+",";
+                listConfExtRes=listConfExtRes+((String) request.getParameter("Addedext"+a))+",";
                 
             }
             a=a+1;
-            nume=Integer.toString(a);
+        }
+        a=1;
+        z=0;
+        while(z<100){
+            
+            if(request.getParameter("Addedss"+a)==null){
+                z=z+1;
+            }
+            else{
+                listConfNonAd=listConfNonAd+((String) request.getParameter("Addedss"+a))+",";
+                
+            }
+            a=a+1;
         }
         
         try {
@@ -125,8 +167,9 @@ public class Properties extends HttpServlet{
             manager.UpdateConfig("RenameCat", "manager.conf", true, PropertyManagement.reader("id"), PropertyManagement.reader("id"), login,null);
              PropertyManagement.writer("id",login);
              PropertyManagement.writer("ip",ip);
-             PropertyManagement.writer("NonAdminList",listConfRes);
-             PropertyManagement.writer("ExtList",listConfExtRes);
+             manager.UpdateConfig("Update", "admin.conf", false, "parameters", "NonAdminList",listConfRes ,null);
+             manager.UpdateConfig("Update", "admin.conf", false, "parameters", "ExtList",listConfExtRes ,null);
+             manager.UpdateConfig("Update", "admin.conf", false, "parameters", "SousAdminList",listConfNonAd ,null);
              
         } catch (AuthenticationFailedException ex) {
             Logger.getLogger(Properties.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,7 +180,7 @@ public class Properties extends HttpServlet{
         }
        
         
-        dispatcher = request.getRequestDispatcher("/Connexion.jsp");
+    dispatcher = request.getRequestDispatcher("/Accueil.jsp");
         dispatcher.forward(request, response);
     }
 }

@@ -45,14 +45,34 @@ public class Dialplan extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("admin") != null) {
-            
+            List<Pair<String, String>> list = new LinkedList<Pair<String, String>>();
+            ProcessConfFile conf= new ProcessConfFile();
+            try {
+                list = conf.GetConfFile("admin.conf");
+
+            } catch (AuthenticationFailedException ex) {
+                Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (TimeoutException ex) {
+                Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ModifConf.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (((String) session.getAttribute("admin")).equals("true")) {
                 request.setAttribute("admin", "true");
-            } else {
+            } else if (((String) session.getAttribute("sousAdmin"))!=null) {
+                
+                request.setAttribute("admin", "false");
+                request.setAttribute("sousAdmin", "true");
+            }
+            else{
                 request.setAttribute("admin", "false");
             }
             
-            listConfi = new LinkedList(Arrays.asList(PropertyManagement.reader("ExtList").split(",")));
+            for(int r=0;r<list.size();r++){
+                    if(list.get(r).getValue().contains("ExtList")){
+                        listConfi= new LinkedList(Arrays.asList(list.get(r).getValue().split("=")[1].split(",")));
+                    }
+                }
             ProcessConfFile pConf = new ProcessConfFile();
             String parameter = request.getParameter("conf");
             setParameter(parameter);
@@ -82,6 +102,7 @@ public class Dialplan extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(VUE);
         int size0 = Integer.parseInt((String) request.getParameter("size0"));
         int size1 = Integer.parseInt((String) request.getParameter("size1"));
@@ -102,7 +123,7 @@ public class Dialplan extends HttpServlet {
 
         ProcessConfFile process = new ProcessConfFile();
         UpdateConf manager = new UpdateConf();
-
+        
         if (action.equals("Copier")) {
             String cate = "";
             String number = "";
@@ -262,7 +283,15 @@ public class Dialplan extends HttpServlet {
             } catch (InterruptedException ex) {
                 Logger.getLogger(Dialplan.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if(session.getAttribute("admin") != null && session.getAttribute("admin").equals("true")){
             dispatcher = request.getRequestDispatcher("/Accueil.jsp");
+            }
+            else if(session.getAttribute("sousAdmin")!=null){
+               dispatcher = request.getRequestDispatcher("/Accueil_2.jsp"); 
+            }
+            else{
+                dispatcher = request.getRequestDispatcher("/Accueil_1.jsp"); 
+            }
             dispatcher.forward(request, response);
         }
 

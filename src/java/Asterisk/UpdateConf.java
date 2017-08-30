@@ -54,7 +54,6 @@ public class UpdateConf implements ManagerEventListener {
     }
 
     public void onManagerEvent(ManagerEvent event) {
-        System.out.println(event);
     }
 
 }
