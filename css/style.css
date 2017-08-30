@@ -1508,6 +1508,8 @@ text-align:center;
 display:inline-block;
 position:relative;
 border-radius:8px 8px 0 0;
+width: 200px;
+
 }
 #menu-demo2 ul li{
 display:inherit;
@@ -1550,11 +1552,21 @@ background-color: #F6AD1A;
 background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
 background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
 }
+#menu-demo2 li:nth-child(7){
+background-color: #D40047;
+background-image: -webkit-linear-gradient(top, #D40047 0%, #D40047 100%);
+background-image:linear-gradient(to bottom, #D40047 0%, #D40047 100%);
+}
+#menu-demo2 li:nth-child(6){
+background-color: #02ED71;
+background-image:-webkit-linear-gradient(top, #02ED71 0%, #02ED71 100%);
+background-image:linear-gradient(to bottom, #02ED71 0%, #02ED71 100%);
+}
 #menu-demo2 li:last-child{
     
-background-color: #CFFF6A;
-background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
-background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
+background-color: #677F35;
+background-image:-webkit-linear-gradient(top, #677F35 0%, #677F35 100%);
+background-image:linear-gradient(to bottom, #677F35 0%, #677F35 100%);
 }
 /* background des liens sous menus */
 #menu-demo2 li:first-child li{
@@ -1566,24 +1578,18 @@ background:#333A40;
 #menu-demo2 li:nth-child(4) li{
 background:#9F391A;
 }
+#menu-demo2 li:nth-child(7) li{
+background:#D40047;
+}
+#menu-demo2 li:nth-child(6) li{
+background:#02ED71;
+}
 #menu-demo2 li:last-child li{
-    
-background:#677F35;
-}
-/* background des liens menus et sous menus au survol */
-#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
-background:#65537A;
-}
-#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(2) li:hover{
-background:#729EBF;
-}
-#menu-demo2 li:nth-child(4):hover, #menu-demo2 li:nth-child(3) li:hover{
-background:#F6AD1A;
-}
-#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
     
 background:#CFFF6A;
 }
+/* background des liens menus et sous menus au survol */
+
 /* les a href */
 #menu-demo2 a{
 text-decoration:none;

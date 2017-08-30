@@ -127,12 +127,12 @@
                                             <h2>Configurer GASTON</h2>
                                         </a>
                                         
-                                        <div class="Interface_connexion"><a href="/GASTON/ajout_util">
+                                        <div class="Interface_connexion"><a href="/GASTON/util">
                                                 <img src="./graph/accueil/10.png" width="216px" height="181px">
                                             </a></div>
 
-                                        <a href="/GASTON/ajout_util">
-                                            <h2>Ajouter un utilisateur</h2>
+                                        <a href="/GASTON/util">
+                                            <h2>Gérer les utilisateurs</h2>
                                         </a>
                                         
                                     </div>

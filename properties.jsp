@@ -83,6 +83,7 @@
                             String ip = (String) request.getAttribute("ip");
                             String permit = (String) request.getAttribute("permit");
                             LinkedList<String> listConfAdmin = (LinkedList<String>) request.getAttribute("listConfAdmin");
+                            LinkedList<String> listConfssAdmin = (LinkedList<String>) request.getAttribute("listConfssAdmin");
                             LinkedList<String> listConfUsers = (LinkedList<String>) request.getAttribute("listConfUsers");
                             LinkedList<String> listConfExt = (LinkedList<String>) request.getAttribute("listConfExt");
                         %>
@@ -96,7 +97,7 @@
                                 var counter = 1;
                                 function addConf(divName, val) {
                                     var newdiv = document.createElement('li');
-                                    newdiv.innerHTML = " <input id='Added" + counter + "' type ='text' name='Added" + counter + "' value='" + val + "' onclick=" + "\"removeConf('Added" + counter + "')\"" + " >";
+                                    newdiv.innerHTML = " <input id='Added" + counter + "' type ='text' name='Added" +divName+counter + "' value='" + val + "' onclick=" + "\"removeConf('Added" + divName+counter + "')\"" + " >";
                                     document.getElementById(divName).appendChild(newdiv);
                                     counter++;
 
@@ -159,7 +160,7 @@
                                                         <li><a href="#">Fichiers de configuration</a>
                                                             <ul>
                                                                 <% for (int i = 0; i < listConfAdmin.size(); i++) {%>
-                                                                <li><input id='<%out.print(i);%>' type ="text" name='Admin<%out.print(i);%>' value='<%out.print(listConfAdmin.get(i));%>' onclick="addConf('dynamic', '<%out.print(listConfAdmin.get(i));%>')"></li>
+                                                                <li size="25px"><input  id='<%out.print(i);%>' type ="text"  name='Admin<%out.print(i);%>' value='<%out.print(listConfAdmin.get(i));%>' onclick="addConf('dynamic', '<%out.print(listConfAdmin.get(i));%>')"></li>
                                                                     <%}%>
                                                             </ul>
                                                         </li>
@@ -169,7 +170,7 @@
                                                         <li><a href="#">Fichiers Accessibles</a>
                                                             <ul id="dynamic">
                                                                 <% for (int i = 0; i < listConfUsers.size(); i++) {%>
-                                                                <li><input id='Us<%out.print(i);%>' type ="text" name='Users<%out.print(i);%>' value='<%out.print(listConfUsers.get(i));%>' onclick="removeConf('Us<%out.print(i);%>')"></li>
+                                                                <li size="25px"><input  id='Us<%out.print(i);%>' type ="text"  name='Users<%out.print(i);%>' value='<%out.print(listConfUsers.get(i));%>' onclick="removeConf('Us<%out.print(i);%>')"></li>
                                                                     <%}%>
                                                             </ul>
                                                         </li>
@@ -177,21 +178,40 @@
                                                         <li><a href="#">Fichiers de configuration</a>
                                                             <ul>
                                                                 <% for (int i = 0; i < listConfAdmin.size(); i++) {%>
-                                                                <li><input id='<%out.print(i);%>' type ="text" name='Admin<%out.print(i);%>' value='<%out.print(listConfAdmin.get(i));%>' onclick="addConf('ext', '<%out.print(listConfAdmin.get(i));%>')"></li>
+                                                                <li size="25px"><input   id='<%out.print(i);%>' type ="text"  name='Admin<%out.print(i);%>' value='<%out.print(listConfAdmin.get(i));%>' onclick="addConf('ext', '<%out.print(listConfAdmin.get(i));%>')"></li>
                                                                     <%}%>
                                                             </ul>
                                                         </li>
                                                             
                                                         <img src="graph/pictos/b3fleche_ferme.png"></img>
-                                                        &ensp;
+                                                        
                                                         
                                                         <li><a href="#">Fichiers Dialplan</a>
                                                             <ul id="ext">
                                                                 <% for (int i = 0; i < listConfExt.size(); i++) {%>
-                                                                <li><input id='Ex<%out.print(i);%>' type ="text" name='Ext<%out.print(i);%>' value='<%out.print(listConfExt.get(i));%>' onclick="removeConf('Ex<%out.print(i);%>')"></li>
+                                                                <li size="25px"><input  id='Ex<%out.print(i);%>' type ="text"  name='Ext<%out.print(i);%>' value='<%out.print(listConfExt.get(i));%>' onclick="removeConf('Ex<%out.print(i);%>')"></li>
                                                                     <%}%>
                                                             </ul>
-                                                        </li>&ensp;&ensp;
+                                                        </li>
+                                                        
+                                                        <li><a href="#">Fichiers de configuration</a>
+                                                            <ul>
+                                                                <% for (int i = 0; i < listConfAdmin.size(); i++) {%>
+                                                                <li size="25px"><input  id='<%out.print(i);%>' type ="text"  name='Admin<%out.print(i);%>' value='<%out.print(listConfAdmin.get(i));%>' onclick="addConf('ss', '<%out.print(listConfAdmin.get(i));%>')"></li>
+                                                                    <%}%>
+                                                            </ul>
+                                                        </li>
+                                                            
+                                                        <img src="graph/pictos/b3fleche_ferme.png"></img>
+                                                        
+                                                        
+                                                        <li><a href="#">Fichiers Sous Admin</a>
+                                                            <ul id="ss">
+                                                                <% for (int i = 0; i < listConfssAdmin.size(); i++) {%>
+                                                                <li><input size="25px" id='ssAdm<%out.print(i);%>' type ="text"  name='ssAdm<%out.print(i);%>' value='<%out.print(listConfssAdmin.get(i));%>' onclick="removeConf('ssAdm<%out.print(i);%>')"></li>
+                                                                    <%}%>
+                                                            </ul>
+                                                        </li>
                                                         
                                                     </ul>
                                                 </div>

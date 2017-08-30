@@ -76,9 +76,13 @@
 
                                 }
                             </script>
-                            <%String admin = (String) request.getAttribute("admin");
+                           <%String admin = (String) request.getAttribute("admin");
+                            String ssadmin = (String) request.getAttribute("sousAdmin");
                                 if (admin.equals("true")) {%>
                             <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
+                            </div>
+                            <%}else if (admin.equals("false") && ssadmin!=null) {%>
+                            <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil_2" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
                             </div>
                             <%} else {%>
                             <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil_1" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
@@ -334,7 +338,7 @@
                                                                             <%exten = exten + 1;
                                                                         }%>
                                                                         </div>
-                                                                        <li><a id ="line"><input id='adde' type="button" value="Add another line" onClick="addExt('dynamicExt<%out.print(cat);%>|<%out.print(num);%>','<%out.print(cat);%>|<%out.print(num);%>|<%out.print(exten-1);%>','<%out.print(val1.get(exten-1).getKey());%>')" size="700px"></input></a></li>
+                                                                        <li><a id ="line"><input id='adde' type="button" value="Ajouter une ligne" onClick="addExt('dynamicExt<%out.print(cat);%>|<%out.print(num);%>','<%out.print(cat);%>|<%out.print(num);%>|<%out.print(exten-1);%>','<%out.print(val1.get(exten-1).getKey());%>')" size="700px"></input></a></li>
                                                                     </ul>
                                                                 </li>
                                                                 <%num = num + 1;
@@ -344,7 +348,7 @@
                                                                     <ul>
                                                                         <div id="dynamicExt<%out.print(cat);%>|<%out.print(num);%>">
                                                                         </div>
-                                                                        <li><a id ="line"><input id='adde' type="button" value="Add another line" onClick="addExt('dynamicExt<%out.print(cat);%>|<%out.print(num);%>','<%out.print(cat);%>|<%out.print(num);%>','line-<%out.print(key.split("=")[0].split("-")[1]);%>')" size="700px"></input></a></li>
+                                                                        <li><a id ="line"><input id='adde' type="button" value="Ajouter une ligne" onClick="addExt('dynamicExt<%out.print(cat);%>|<%out.print(num);%>','<%out.print(cat);%>|<%out.print(num);%>','line-<%out.print(key.split("=")[0].split("-")[1]);%>')" size="700px"></input></a></li>
 
                                                                     </ul>     
                                                                 </li>
@@ -359,7 +363,7 @@
                                                        }%>     
                                                         </div>
                                                         
-                                                       <li ><a><input id='adde' type="button" value="Add another line" onClick="addCat('dynamicCat','newCat','category-added','line-added')" ></input></a></li>
+                                                       <li ><a><input id='adde' type="button" value="Ajouter une ligne" onClick="addCat('dynamicCat','newCat','category-added','line-added')" ></input></a></li>
                                                        
                                                         <input type="hidden" name="size0" value="<%out.print(plus);%>"></input>
                                                         <input type="hidden" name="size1" value="<%out.print(plus1);%>"></input>

@@ -63,8 +63,12 @@
                                 }
                             </script>
                             <%String admin = (String) request.getAttribute("admin");
+                            String ssadmin = (String) request.getAttribute("sousAdmin");
                                 if (admin.equals("true")) {%>
                             <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
+                            </div>
+                            <%}else if (admin.equals("false") && ssadmin!=null) {%>
+                            <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil_2" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
                             </div>
                             <%} else {%>
                             <div id="logogipsi" style="padding-left: 30px; padding-top: 5px;"><a href="/GASTON/accueil_1" title="Accueil"><img src="graph/mini_home.png" alt="Accueil" style="width: 40px;"/></a>   
@@ -84,10 +88,10 @@
                         List<Pair<String, String>> listLines = (List<Pair<String, String>>) request.getAttribute("listLines");
                         LinkedList<String> listConf = (LinkedList<String>) request.getAttribute("listConf");
                         LinkedList<String> listAide = (LinkedList<String>) request.getAttribute("listAide");
-
+                        
                     %>
 
-
+                    
 
                     <div id="conteneur">
 
@@ -131,6 +135,7 @@
                             <div id='confForm' col-lg-12>
                                 <% if (parameter != null && listAide.size()!=0) { 
                                     List<String> doublon = new LinkedList<String>();
+                                    List<String> doublon1 = new LinkedList<String>();
                                 %>
                                 <datalist id="suggest" >
                                          <%for(int o=0;o<listAide.size();o++){
@@ -138,18 +143,43 @@
                                              String l=listAide.get(o).substring(0, listAide.get(o).lastIndexOf(":"));
                                             if(l.contains("default") && l.contains(":")){
                                             %>
-                                            <option value="<%out.println(l.substring(0, l.lastIndexOf(":")));%>">
+                                            <option value="<%out.println(l.substring(0, l.lastIndexOf(":")).split("=")[0]);%>">
                                             <%}else{%>
-                                            <option value="<%out.println(l);%>">
+                                            <option value="<%out.println(l.split("=")[0]);%>">
                                          <%}}else{%>
-                                            <option value="<%out.println(listAide.get(o));%>">
+                                            <option value="<%out.println(listAide.get(o).split("=")[0]);%>">
                                          <%}    
                                         }
                                         for(int r=0;r<listLines.size();r++){
                                             if(!doublon.contains(listLines.get(r).getValue())){
                                                 doublon.add(listLines.get(r).getValue());
 
-                                                %><option value="<%out.print(listLines.get(r).getValue());%>">
+                                                %><option value="<%out.print(listLines.get(r).getValue().split("=")[0]);%>">
+                                            <%}
+                                        }%>
+                                
+                                     
+                                  </datalist>
+                                  <datalist id="suggest1" >
+                                         <%for(int o=0;o<listAide.size();o++){
+                                         if(listAide.get(o).contains(":")){
+                                             String l=listAide.get(o).substring(0, listAide.get(o).lastIndexOf(":"));
+                                            if(l.contains("default") && l.contains(":")){
+                                                String m=l.substring(0, l.lastIndexOf(":"));
+                                            
+                                                if(m.split("=").length>1){
+                                            %>
+                                            <option value="<%out.println(m.split("=")[1]);%>">
+                                            <%}}else if(l.split("=").length>1){%>
+                                            <option value="<%out.println(l.split("=")[1]);%>">
+                                         <%}}else if(listAide.get(o).contains("=") && listAide.get(o).split("=").length>1){%>
+                                            <option value="<%out.println(listAide.get(o).split("=")[1]);%>">
+                                         <%}    
+                                        }
+                                        for(int r=0;r<listLines.size();r++){
+                                            if(listLines.get(r).getValue().split("=").length>1 && !doublon1.contains(listLines.get(r).getValue())){
+                                                doublon1.add(listLines.get(r).getValue());
+                                                %><option value="<%out.print(listLines.get(r).getValue().split("=")[1]);%>">
                                             <%}
                                         }%>
                                 
@@ -162,18 +192,21 @@
                         <div class="row" >
 
                             <% if (parameter != null) {%>
+                              
                             <div id='confForm' col-lg-12 >
                                 <form method="post" action="modifconf">
                                     <div id='conf' >
 
                                         <div id="dynamicInput" >
-                                            <%if (listLines != null && listLines.size() != 0) {
+                                            <%if (listLines != null ) {
                                                     int numcat=0;
                                                     int lastcat=0;
                                                     for (int i = 0; i < listLines.size(); i++) {
-
-                                                        if (listLines.get(i).getKey().contains("category")) {
+                                                        
+                                                        if (listLines.get(i).getKey().contains("category") ) {
+                
                                                             if(i!=0){%>
+                                                            
                                                             <div id="categor<%out.print(numcat);%>"> 
                                                             </div>
                                                             
@@ -249,7 +282,7 @@
                                         </div>
                                     </div>
                                         <div align="center" >
-                                             
+                                           
                                         <a><input type="submit" name="ModifConfig" value="Appliquer" style="font-size:30px; height:40px;"/></a>
                                         </div>
                                 </form>   
@@ -275,7 +308,7 @@
                                        var counter=1;
                                         function addInput(divName,num) {
                                             var newdiv = document.createElement('div');
-                                            newdiv.innerHTML = " <special id='added" + counter + "'><br><input type='hidden' name='key" + counter + "' value='"+num+"' ><input name='value0" + counter + "' list='suggest' type='text' size='25'><input name='value1" + counter + "' list='suggest' type='text' size='25' style='display:table-cell;width:90.5%'>" + "     &nbsp<input id='remove' type='button'  onClick=" + "\"removeInput('added" + counter + "')\"" + "; style='width:7.5%;line-height:30px;'></special>";
+                                            newdiv.innerHTML = " <special id='added" + counter + "'><br><input type='hidden' id='key"+counter+"' name='key"+counter+"' value='"+num+"' ><input id='value0" + counter + "' name='value0" + counter + "' value='' list='suggest' type='text' size='25'><input id='value1"+counter+"' name='value1"+counter+"' type='text' value='' list='suggest1'  size='25' style='display:table-cell;width:90.5%'>" + "     &nbsp<input id='remove' type='button'  onClick=" + "\"removeInput('added" + counter + "')\"" + "; style='width:7.5%;line-height:30px;'></special>";
                                             document.getElementById(divName).appendChild(newdiv);
                                            counter++;
 
@@ -283,7 +316,7 @@
                                         var counte = 1;
                                         function addExt(divName,next,line) {
                                             var newdiv = document.createElement('div');
-                                            newdiv.innerHTML = " <special id='line" + counte + "'><br><input type='hidden' id='"+next+"|"+counte+"' name='xte"+next+"|"+counte+"' value='"+line+"' ><input id='"+next+"|"+counte+"' type ='text' name='xt"+next+"|"+counte+"' value='' list='suggest' type='text' size='25'><input id='"+next+"|"+counte+"' type ='text' name='xt1"+next+"|"+counte+"' value='' list='suggest' type='text' size='25' style='display:table-cell;width:90.5%'>" + "&nbsp<input id='remove' type='button'  onClick=" + "\"removeInput('line" + counte + "')\"" + "; style='width:7.5%;line-height:30px;'></special>";
+                                            newdiv.innerHTML = " <special id='line" + counte + "'><br><input type='hidden' id='"+next+"|"+counte+"' name='xte"+next+"|"+counte+"' value='"+line+"' ><input id='"+next+"|"+counte+"' type ='text' name='xt"+next+"|"+counte+"' value='' list='suggest' type='text' size='25'><input id='"+next+"|"+counte+"' type ='text' name='xt1"+next+"|"+counte+"' value='' list='suggest1' type='text' size='25' style='display:table-cell;width:90.5%'>" + "&nbsp<input id='remove' type='button'  onClick=" + "\"removeInput('line" + counte + "')\"" + "; style='width:7.5%;line-height:30px;'></special>";
                                             document.getElementById(divName).appendChild(newdiv);
                                             counte++;
 
